@@ -11,6 +11,7 @@ const DEFAULT_CHECKLIST = [
             { id: "u_barranco_larcomar", text: "📱 Uber: Barranco ➔ Larcomar", cost: 12.00, category: "Ubers" },
             { id: "u_larcomar_casa", text: "📱 Uber: Larcomar ➔ Apto", cost: 10.00, category: "Ubers" },
             { id: "c_larcomar", text: "🍽️ Cena de Bienvenida en Larcomar (Popular o Mangos)", cost: 160.00, category: "Restaurantes" },
+            { id: "a_bogota_escala", text: "🍔 Almuerzo/Snacks en Aeropuerto El Dorado (escala BOG)", cost: 50.00, category: "Restaurantes" },
             { id: "f_emergencia_mira", text: "🎟️ Reserva/Fondo de Emergencia Local (Miraflores)", cost: 5.00, category: "Ocio" }
         ]
     },
@@ -40,6 +41,7 @@ const DEFAULT_CHECKLIST = [
         items: [
             { id: "a_punto_azul", text: "🍽️ Almuerzo Marino: Punto Azul (Miraflores)", cost: 120.00, category: "Restaurantes" },
             { id: "t2_cusco", text: "🚕 Traslado 2 (Partida Cusco): Uber Apto ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
+            { id: "c_cusco_llegada", text: "🍽️ Cena ligera en Cusco (Día de llegada)", cost: 100.00, category: "Restaurantes" },
             { id: "u_locales_rapidos", text: "📱 Ubers rápidos locales", cost: 10.00, category: "Ubers" }
         ]
     },
@@ -65,6 +67,8 @@ const DEFAULT_CHECKLIST = [
         day: 7,
         dayLabel: "Día 7: Lunes 10 de Agosto",
         items: [
+            { id: "t_cusco_aero", text: "🚕 Taxi: Apto Cusco ➔ Aeropuerto Cusco", cost: 20.00, category: "Traslados" },
+            { id: "a_cusco_rapido", text: "🍽️ Almuerzo rápido en Cusco o Aeropuerto", cost: 60.00, category: "Restaurantes" },
             { id: "t3_retorno", text: "🚕 Traslado 3 (Retorno Cusco): Uber Aeropuerto Jorge Chávez ➔ Apto", cost: 85.00, category: "Traslados" },
             { id: "u_casa_7sopas", text: "📱 Uber: Apto ➔ 7 Sopas (Miraflores) ida/vuelta", cost: 18.00, category: "Ubers" },
             { id: "c_7sopas", text: "🍽️ Cena de Despedida: 7 Sopas (Parque Kennedy)", cost: 80.00, category: "Restaurantes" }
@@ -74,9 +78,8 @@ const DEFAULT_CHECKLIST = [
         day: 8,
         dayLabel: "Día 8: Martes 11 de Agosto",
         items: [
-            { id: "d_pan_chola", text: "🍽️ Desayuno de Despedida: El Pan de la Chola", cost: 70.00, category: "Restaurantes" },
+            { id: "d_apto_groceries", text: "🛒 Desayuno en el Apto (Ingredientes / Compras)", cost: 20.00, category: "Restaurantes" },
             { id: "t4_cali", text: "🚕 Traslado 4 (Regreso Cali): Uber Apto ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
-            { id: "u_pan_chola_idavuelta", text: "📱 Uber: Apto ➔ El Pan de la Chola ida/vuelta", cost: 25.00, category: "Ubers" },
             { id: "m_variacion_rest", text: "🎟️ Margen de Variación final de Restaurantes (Lima)", cost: 47.00, category: "Restaurantes" }
         ]
     }
