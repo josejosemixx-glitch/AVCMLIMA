@@ -5,7 +5,7 @@ const PACKING_LIST = [
     {
         category: "📄 Documentos Importantes",
         items: [
-            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (y Pasaporte)" },
+            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (física y vigente)" },
             { id: "pack_vuelos", text: "Boletos aéreos de LATAM Cali-Lima impresos / digitales" },
             { id: "pack_vuelos_cusco", text: "Boletos aéreos de LATAM Lima-Cusco" },
             { id: "pack_seguro", text: "Tarjeta de Seguro Médico Internacional" }
@@ -14,15 +14,15 @@ const PACKING_LIST = [
     {
         category: "🧥 Ropa para Lima (Frío/Humedad)",
         items: [
-            { id: "pack_lima_abrigo", text: "Casaca ligera o suéter de abrigo intermedio (1-2)" },
+            { id: "pack_lima_abrigo", text: "Chaqueta ligera o buzo abrigado intermedio (1-2)" },
             { id: "pack_lima_pantalon", text: "Pantalones largos abrigados (jeans o leggings)" },
-            { id: "pack_lima_polos", text: "Polos o remeras de manga larga" }
+            { id: "pack_lima_polos", text: "Camisetas manga larga" }
         ]
     },
     {
         category: "desierto 🏜️ Ropa para Ica/Paracas (Sol/Viento)",
         items: [
-            { id: "pack_cortavientos", text: "🧥 Casaca Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
+            { id: "pack_cortavientos", text: "🧥 Chaqueta Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
             { id: "pack_lentes", text: "🕶️ Lentes de sol (areneros de Huacachina y sandboarding)" },
             { id: "pack_zapatillas", text: "👟 Zapatillas deportivas cerradas (para caminar en arena)" },
             { id: "pack_gorro", text: "🧢 Gorro o sombrero con cordón / sujetador" }
@@ -31,7 +31,7 @@ const PACKING_LIST = [
     {
         category: "❄️ Ropa para Cusco (Invierno Andino - Frío Extremo)",
         items: [
-            { id: "pack_cusco_abrigo", text: "Casaca térmica gruesa de invierno (plumas o acolchada)" },
+            { id: "pack_cusco_abrigo", text: "Chaqueta térmica gruesa de invierno (plumas o acolchada)" },
             { id: "pack_cusco_termicos", text: "Camiseta y calzas térmicas (para usar debajo de la ropa de noche)" },
             { id: "pack_cusco_lana", text: "Gorro de lana, guantes abrigados y medias de lana gruesa" }
         ]
@@ -40,7 +40,7 @@ const PACKING_LIST = [
         category: "🦟 Ropa para Machu Picchu (Selva Alta)",
         items: [
             { id: "pack_mp_repelente", text: "🧴 Repelente de insectos fuerte con DEET (¡Muy importante!)" },
-            { id: "pack_mp_camisas", text: "Polos manga larga delgados (colores claros para mosquitos)" },
+            { id: "pack_mp_camisas", text: "Camisetas manga larga delgadas (colores claros para mosquitos)" },
             { id: "pack_mp_trekking", text: "Pantalones de senderismo cómodos y ligeros" },
             { id: "pack_mp_lluvia", text: "Poncho o impermeable ligero para lluvias sorpresivas" }
         ]

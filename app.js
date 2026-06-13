@@ -7,9 +7,9 @@ const DEFAULT_CHECKLIST = [
         dayLabel: "Día 1: Martes 4 de Agosto",
         items: [
             { id: "t1_llegada", text: "🚕 Traslado 1 (Llegada): Uber Comfort/Black Aeropuerto ➔ Av. Benavides 1130", cost: 85.00, category: "Traslados" },
-            { id: "u_casa_barranco", text: "📱 Uber: Casa ➔ Barranco", cost: 15.00, category: "Ubers" },
+            { id: "u_casa_barranco", text: "📱 Uber: Apto ➔ Barranco", cost: 15.00, category: "Ubers" },
             { id: "u_barranco_larcomar", text: "📱 Uber: Barranco ➔ Larcomar", cost: 12.00, category: "Ubers" },
-            { id: "u_larcomar_casa", text: "📱 Uber: Larcomar ➔ Casa", cost: 10.00, category: "Ubers" },
+            { id: "u_larcomar_casa", text: "📱 Uber: Larcomar ➔ Apto", cost: 10.00, category: "Ubers" },
             { id: "c_larcomar", text: "🍽️ Cena de Bienvenida en Larcomar (Popular o Mangos)", cost: 160.00, category: "Restaurantes" },
             { id: "f_emergencia_mira", text: "🎟️ Reserva/Fondo de Emergencia Local (Miraflores)", cost: 5.00, category: "Ocio" }
         ]
@@ -18,7 +18,7 @@ const DEFAULT_CHECKLIST = [
         day: 2,
         dayLabel: "Día 2: Miércoles 5 de Agosto",
         items: [
-            { id: "t_paracas_ica", text: "🌊 Tour Full-Day Paracas/Ica: Opción Grupal Premium Todo Incluido (Recojo en puerta)", cost: 280.00, category: "Tours" },
+            { id: "t_paracas_ica", text: "🌊 Tour Full-Day Paracas/Ica: Opción Grupal Premium Todo Incluido (Recogida en la puerta)", cost: 280.00, category: "Tours" },
             { id: "u_jose_oficina", text: "📱 Uber: Traslado de José a la oficina ida/vuelta", cost: 20.00, category: "Ubers" }
         ]
     },
@@ -26,10 +26,10 @@ const DEFAULT_CHECKLIST = [
         day: 3,
         dayLabel: "Día 3: Jueves 6 de Agosto",
         items: [
-            { id: "u_casa_centro", text: "📱 Uber: Casa ➔ Centro Histórico", cost: 25.00, category: "Ubers" },
+            { id: "u_casa_centro", text: "📱 Uber: Apto ➔ Centro Histórico", cost: 25.00, category: "Ubers" },
             { id: "u_centro_circuito", text: "📱 Uber: Centro ➔ Circuito Mágico del Agua", cost: 12.00, category: "Ubers" },
             { id: "u_circuito_maketto", text: "📱 Uber: Circuito Mágico ➔ Maketto (Miraflores)", cost: 18.00, category: "Ubers" },
-            { id: "u_maketto_casa", text: "📱 Uber: Maketto ➔ Casa", cost: 10.00, category: "Ubers" },
+            { id: "u_maketto_casa", text: "📱 Uber: Maketto ➔ Apto", cost: 10.00, category: "Ubers" },
             { id: "e_circuito_agua", text: "🎟️ Entradas: Circuito Mágico del Agua (S/ 4.00 por persona)", cost: 8.00, category: "Ocio" },
             { id: "c_maketto", text: "🍽️ Cena Asiática: Maketto (Ramen/Baos)", cost: 160.00, category: "Restaurantes" }
         ]
@@ -39,7 +39,7 @@ const DEFAULT_CHECKLIST = [
         dayLabel: "Día 4: Viernes 7 de Agosto",
         items: [
             { id: "a_punto_azul", text: "🍽️ Almuerzo Marino: Punto Azul (Miraflores)", cost: 120.00, category: "Restaurantes" },
-            { id: "t2_cusco", text: "🚕 Traslado 2 (Partida Cusco): Uber Casa ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
+            { id: "t2_cusco", text: "🚕 Traslado 2 (Partida Cusco): Uber Apto ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
             { id: "u_locales_rapidos", text: "📱 Ubers rápidos locales", cost: 10.00, category: "Ubers" }
         ]
     },
@@ -65,8 +65,8 @@ const DEFAULT_CHECKLIST = [
         day: 7,
         dayLabel: "Día 7: Lunes 10 de Agosto",
         items: [
-            { id: "t3_retorno", text: "🚕 Traslado 3 (Retorno Cusco): Uber Aeropuerto Jorge Chávez ➔ Casa", cost: 85.00, category: "Traslados" },
-            { id: "u_casa_7sopas", text: "📱 Uber: Casa ➔ 7 Sopas (Miraflores) ida/vuelta", cost: 18.00, category: "Ubers" },
+            { id: "t3_retorno", text: "🚕 Traslado 3 (Retorno Cusco): Uber Aeropuerto Jorge Chávez ➔ Apto", cost: 85.00, category: "Traslados" },
+            { id: "u_casa_7sopas", text: "📱 Uber: Apto ➔ 7 Sopas (Miraflores) ida/vuelta", cost: 18.00, category: "Ubers" },
             { id: "c_7sopas", text: "🍽️ Cena de Despedida: 7 Sopas (Parque Kennedy)", cost: 80.00, category: "Restaurantes" }
         ]
     },
@@ -75,8 +75,8 @@ const DEFAULT_CHECKLIST = [
         dayLabel: "Día 8: Martes 11 de Agosto",
         items: [
             { id: "d_pan_chola", text: "🍽️ Desayuno de Despedida: El Pan de la Chola", cost: 70.00, category: "Restaurantes" },
-            { id: "t4_cali", text: "🚕 Traslado 4 (Regreso Cali): Uber Casa ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
-            { id: "u_pan_chola_idavuelta", text: "📱 Uber: Casa ➔ El Pan de la Chola ida/vuelta", cost: 25.00, category: "Ubers" },
+            { id: "t4_cali", text: "🚕 Traslado 4 (Regreso Cali): Uber Apto ➔ Aeropuerto Jorge Chávez", cost: 85.00, category: "Traslados" },
+            { id: "u_pan_chola_idavuelta", text: "📱 Uber: Apto ➔ El Pan de la Chola ida/vuelta", cost: 25.00, category: "Ubers" },
             { id: "m_variacion_rest", text: "🎟️ Margen de Variación final de Restaurantes (Lima)", cost: 47.00, category: "Restaurantes" }
         ]
     }
@@ -89,7 +89,7 @@ const PACKING_LIST = [
     {
         category: "📄 Documentos Importantes",
         items: [
-            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (y Pasaporte)" },
+            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (física y vigente)" },
             { id: "pack_vuelos", text: "Boletos aéreos de LATAM Cali-Lima impresos / digitales" },
             { id: "pack_vuelos_cusco", text: "Boletos aéreos de LATAM Lima-Cusco" },
             { id: "pack_seguro", text: "Tarjeta de Seguro Médico Internacional" }
@@ -98,15 +98,15 @@ const PACKING_LIST = [
     {
         category: "🧥 Ropa para Lima (Frío/Humedad)",
         items: [
-            { id: "pack_lima_abrigo", text: "Casaca ligera o suéter de abrigo intermedio (1-2)" },
+            { id: "pack_lima_abrigo", text: "Chaqueta ligera o buzo abrigado intermedio (1-2)" },
             { id: "pack_lima_pantalon", text: "Pantalones largos abrigados (jeans o leggings)" },
-            { id: "pack_lima_polos", text: "Polos o remeras de manga larga" }
+            { id: "pack_lima_polos", text: "Camisetas manga larga" }
         ]
     },
     {
         category: "desierto 🏜️ Ropa para Ica/Paracas (Sol/Viento)",
         items: [
-            { id: "pack_cortavientos", text: "🧥 Casaca Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
+            { id: "pack_cortavientos", text: "🧥 Chaqueta Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
             { id: "pack_lentes", text: "🕶️ Lentes de sol (areneros de Huacachina y sandboarding)" },
             { id: "pack_zapatillas", text: "👟 Zapatillas deportivas cerradas (para caminar en arena)" },
             { id: "pack_gorro", text: "🧢 Gorro o sombrero con cordón / sujetador" }
@@ -115,7 +115,7 @@ const PACKING_LIST = [
     {
         category: "❄️ Ropa para Cusco (Invierno Andino - Frío Extremo)",
         items: [
-            { id: "pack_cusco_abrigo", text: "Casaca térmica gruesa de invierno (plumas o acolchada)" },
+            { id: "pack_cusco_abrigo", text: "Chaqueta térmica gruesa de invierno (plumas o acolchada)" },
             { id: "pack_cusco_termicos", text: "Camiseta y calzas térmicas (para usar debajo de la ropa de noche)" },
             { id: "pack_cusco_lana", text: "Gorro de lana, guantes abrigados y medias de lana gruesa" }
         ]
@@ -124,7 +124,7 @@ const PACKING_LIST = [
         category: "🦟 Ropa para Machu Picchu (Selva Alta)",
         items: [
             { id: "pack_mp_repelente", text: "🧴 Repelente de insectos fuerte con DEET (¡Muy importante!)" },
-            { id: "pack_mp_camisas", text: "Polos manga larga delgados (colores claros para mosquitos)" },
+            { id: "pack_mp_camisas", text: "Camisetas manga larga delgadas (colores claros para mosquitos)" },
             { id: "pack_mp_trekking", text: "Pantalones de senderismo cómodos y ligeros" },
             { id: "pack_mp_lluvia", text: "Poncho o impermeable ligero para lluvias sorpresivas" }
         ]
