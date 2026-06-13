@@ -153,15 +153,37 @@
                                     <p>Conexión internacional en Bogotá. Salida hacia Lima. Duración: 3 horas y 5 minutos.</p>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez">
+                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
                                 <div class="time">03:00 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
                                         <h4>✈️ Arribo de Angelica a Lima (LA 4906)</h4>
                                         <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Húmedo</span>
                                     </div>
-                                    <p>Coordinar Uber desde el aeropuerto Jorge Chávez hacia el apartamento de Miraflores.</p>
+                                    <p>Aterrizaje del vuelo de Angelica proveniente de Bogotá en el Aeropuerto Jorge Chávez.</p>
+                                </div>
+                            </li>
+                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Paso por Migraciones">
+                                <div class="time">03:15 PM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>📋 Control Migratorio (Angelica)</h4>
+                                    </div>
+                                    <p>Paso de Angelica por Migraciones. Presentará su Cédula Colombiana de Ciudadanía.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('migration-dialog').showModal()">
+                                        <i class="fa-solid fa-passport"></i> Ver Guía de Migraciones
+                                    </button>
+                                </div>
+                            </li>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Traslado a Miraflores">
+                                <div class="time">04:00 PM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>🚕 Traslado al Apartamento (Miraflores)</h4>
+                                    </div>
+                                    <p>Pedir Uber Comfort o Black para traer a Angelica desde el aeropuerto hasta el apartamento de Miraflores (Av. Alfredo Benavides 1130). Duración estimada: 45-60 min.</p>
                                     <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Chaqueta ligera / buzo.</div>
+                                    <span class="badge badge-blue">Traslado 1: S/ 85.00</span>
                                 </div>
                             </li>
                             <li data-lat="-12.1492" data-lon="-77.0220" data-name="Puente de los Suspiros, Barranco">
@@ -221,7 +243,7 @@
                                         <span class="weather-tag"><i class="fa-solid fa-wind"></i> 17°C Viento fuerte</span>
                                     </div>
                                     <p>Tour en deslizador para ver lobos marinos, pingüinos y El Candelabro.</p>
-                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Chaqueta Cortavientos Obligatoria**, lentes y gorro con sujetador.</div>
+                                     <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> <strong>Chaqueta Cortavientos Obligatoria</strong>, lentes y gorro con sujetador.</div>
                                     <span class="badge badge-blue">Tasas incluidas</span>
                                 </div>
                             </li>
@@ -245,7 +267,7 @@
                                         <span class="weather-tag"><i class="fa-solid fa-sun"></i> 26°C Sol radiante</span>
                                     </div>
                                     <p>Areneros (buggies), sandboarding en las dunas y degustación libre de piscos.</p>
-                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Zapatillas cerradas** (no sandalias) y lentes de sol para la arena.</div>
+                                     <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> <strong>Zapatillas cerradas</strong> (no sandalias) y lentes de sol para la arena.</div>
                                 </div>
                             </li>
                             <li data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento en Miraflores">
@@ -334,7 +356,7 @@
                                         <span class="weather-tag-danger"><i class="fa-solid fa-snowflake"></i> 5°C Frío andino</span>
                                     </div>
                                     <p>Vuelo nocturno a Cusco. Traslado privado al hotel incluido por Apu Andino.</p>
-                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Llevar chaqueta térmica a la mano** para ponérsela al bajar del avión.</div>
+                                     <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> <strong>Llevar chaqueta térmica a la mano</strong> para ponérsela al bajar del avión.</div>
                                     <span class="badge badge-purple">Traslado incluido</span>
                                 </div>
                             </li>
@@ -391,7 +413,7 @@
                                         <span class="weather-tag"><i class="fa-solid fa-cloud-sun"></i> 22°C Cálido y templado</span>
                                     </div>
                                     <p>Recorrido privado por el santuario arqueológico con guía exclusivo de Apu Andino.</p>
-                                    <div class="clothing-tips-warning"><i class="fa-solid fa-bug"></i> **Usar Repelente de Mosquitos** y camiseta manga larga ligera. Lentes de sol.</div>
+                                     <div class="clothing-tips-warning"><i class="fa-solid fa-bug"></i> <strong>Usar Repelente de Mosquitos</strong> y camiseta manga larga ligera. Lentes de sol.</div>
                                 </div>
                             </li>
                             <li data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Restaurantes">
@@ -690,6 +712,36 @@
         </nav>
 
     </div>
+
+    <!-- Dialog para Migraciones -->
+    <dialog id="migration-dialog">
+        <div class="dialog-header">
+            <h3>📋 Guía de Control Migratorio (Perú)</h3>
+            <button class="dialog-close" onclick="document.getElementById('migration-dialog').close()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="dialog-body">
+            <p>Al llegar al módulo de migraciones en el Aeropuerto Jorge Chávez, debes presentar y declarar lo siguiente:</p>
+            
+            <h4>1. Documento de Identidad</h4>
+            <ul>
+                <li><strong>Cédula de Ciudadanía Colombiana física y vigente</strong> (no requieres pasaporte gracias a los acuerdos de la Comunidad Andina).</li>
+            </ul>
+            
+            <h4>2. Dirección de Hospedaje (¡Tener a la mano!)</h4>
+            <ul>
+                <li><strong>Dirección:</strong> Av. Alfredo Benavides 1130, Apartamento 503, Miraflores, Lima.</li>
+                <li><strong>Hospedado por:</strong> José (apartamento de tu pareja).</li>
+            </ul>
+            
+            <h4>3. Declaración y Preguntas Frecuentes</h4>
+            <ul>
+                <li><strong>¿Cuál es el motivo del viaje?</strong> Turismo y vacaciones.</li>
+                <li><strong>¿Cuánto tiempo te quedarás?</strong> 8 días (del 4 al 11 de Agosto).</li>
+                <li><strong>¿Tienes pasaje de regreso?</strong> Sí, salgo de Lima el 11 de Agosto (LATAM).</li>
+                <li><strong>¿Qué lugares visitarás?</strong> Lima, Paracas/Ica y Cusco.</li>
+            </ul>
+        </div>
+    </dialog>
 
     <!-- Main JavaScript Logic -->
     <script src="app.js"></script>
