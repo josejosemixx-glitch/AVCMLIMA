@@ -83,66 +83,42 @@ const DEFAULT_CHECKLIST = [
 ];
 
 // ==========================================
-// CONFIGURACIÓN DE LISTA DE VIAJE (ANGELICA)
+// CONFIGURACIÓN DE LISTA DE VIAJE (JOSÉ)
 // ==========================================
 const PACKING_LIST = [
     {
         category: "📄 Documentos Importantes",
         items: [
-            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (física y vigente)" },
-            { id: "pack_vuelos", text: "Boletos aéreos de LATAM Cali-Lima impresos / digitales" },
+            { id: "pack_dni", text: "DNI vigente (físico)" },
+            { id: "pack_entradas", text: "Entradas impresas / digitales para Machu Picchu y boletos de tren" },
             { id: "pack_vuelos_cusco", text: "Boletos aéreos de LATAM Lima-Cusco" },
-            { id: "pack_seguro", text: "Tarjeta de Seguro Médico Internacional" }
-        ]
-    },
-    {
-        category: "🧥 Ropa para Lima (Frío/Humedad)",
-        items: [
-            { id: "pack_lima_abrigo", text: "Chaqueta ligera o buzo abrigado intermedio (1-2)" },
-            { id: "pack_lima_pantalon", text: "Pantalones largos abrigados (jeans o leggings)" },
-            { id: "pack_lima_polos", text: "Camisetas manga larga" }
-        ]
-    },
-    {
-        category: "desierto 🏜️ Ropa para Ica/Paracas (Sol/Viento)",
-        items: [
-            { id: "pack_cortavientos", text: "🧥 Chaqueta Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
-            { id: "pack_lentes", text: "🕶️ Lentes de sol (areneros de Huacachina y sandboarding)" },
-            { id: "pack_zapatillas", text: "👟 Zapatillas deportivas cerradas (para caminar en arena)" },
-            { id: "pack_gorro", text: "🧢 Gorro o sombrero con cordón / sujetador" }
+            { id: "pack_cargador", text: "Cargador de celular y dispositivos" },
+            { id: "pack_powerbank", text: "🔋 Batería portátil cargada (indispensable para las excursiones)" }
         ]
     },
     {
         category: "❄️ Ropa para Cusco (Invierno Andino - Frío Extremo)",
         items: [
-            { id: "pack_cusco_abrigo", text: "Chaqueta térmica gruesa de invierno (plumas o acolchada)" },
-            { id: "pack_cusco_termicos", text: "Camiseta y calzas térmicas (para usar debajo de la ropa de noche)" },
+            { id: "pack_cusco_abrigo", text: "Chaqueta de plumas (gruesa y abrigadora)" },
+            { id: "pack_cusco_buzos", text: "Sacos / buzos abrigados para el frío de la noche" },
             { id: "pack_cusco_lana", text: "Gorro de lana, guantes abrigados y medias de lana gruesa" }
         ]
     },
     {
         category: "🦟 Ropa para Machu Picchu (Selva Alta)",
         items: [
-            { id: "pack_mp_repelente", text: "🧴 Repelente de insectos fuerte con DEET (¡Muy importante!)" },
-            { id: "pack_mp_camisas", text: "Camisetas manga larga delgadas (colores claros para mosquitos)" },
-            { id: "pack_mp_trekking", text: "Pantalones de senderismo cómodos y ligeros" },
-            { id: "pack_mp_lluvia", text: "Poncho o impermeable ligero para lluvias sorpresivas" }
+            { id: "pack_mp_repelente", text: "🧴 Repelente de insectos fuerte con DEET (indispensable)" },
+            { id: "pack_mp_camisetas", text: "Camisetas delgadas de manga larga (protección de mosquitos y sol)" },
+            { id: "pack_mp_trekking", text: "Pantalones de trekking cómodos" },
+            { id: "pack_mp_impermeable", text: "Chaqueta impermeable o poncho de lluvia" }
         ]
     },
     {
         category: "💊 Salud y Cuidado Personal",
         items: [
-            { id: "pack_bloqueador", text: "☀️ Bloqueador solar SPF 50+ (altitud quema sumamente rápido)" },
-            { id: "pack_balsamo", text: "Bálsamo labial protector (el aire andino reseca mucho)" },
-            { id: "pack_soroche", text: "Pastillas para el soroche o mareos (se compran también en Perú)" },
-            { id: "pack_cremas", text: "Crema hidratante corporal y facial" }
-        ]
-    },
-    {
-        category: "🔌 Tecnología",
-        items: [
-            { id: "pack_cargador", text: "Cargadores de celular y dispositivos" },
-            { id: "pack_powerbank", text: "🔋 Batería portátil cargada (indispensable para días largos)" }
+            { id: "pack_bloqueador", text: "☀️ Bloqueador solar SPF 50+ (la radiación andina es alta)" },
+            { id: "pack_balsamo", text: "Bálsamo labial protector (el aire seco corta los labios)" },
+            { id: "pack_soroche", text: "Pastillas para el soroche (mal de altura)" }
         ]
     }
 ];

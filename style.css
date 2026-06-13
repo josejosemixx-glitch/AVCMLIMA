@@ -987,3 +987,12 @@ body {
 .nav-item.active i {
     transform: scale(1.1);
 }
+
+/* Recommendation Card */
+.recommendation-content {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.12) 0%, rgba(6, 182, 212, 0.08) 100%) !important;
+    border: 1px solid rgba(139, 92, 246, 0.3) !important;
+}
+.recommendation-item::before {
+    border-color: var(--secondary) !important;
+}
