@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✈️ Lima & Cusco 2026 - Panel de Control</title>
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <span class="badge badge-purple"><i class="fa-solid fa-plane-departure"></i> Agosto 2026</span>
+                <h1>Lima & Cusco</h1>
+                <p class="subtitle">Bitácora & Control Financiero en Tiempo Real</p>
+            </div>
+            
+            <!-- Countdown Widget -->
+            <div id="countdown-widget" class="countdown-widget">
+                <div class="countdown-time">
+                    <span id="countdown-days">00</span><small>d</small> : 
+                    <span id="countdown-hours">00</span><small>h</small> : 
+                    <span id="countdown-mins">00</span><small>m</small>
+                </div>
+                <div class="countdown-label">Falta para el viaje</div>
+            </div>
+        </header>
+
+        <!-- Dashboard: Key Stats -->
+        <section class="dashboard-stats">
+            <div class="stat-card total-budget">
+                <div class="stat-icon"><i class="fa-solid fa-wallet"></i></div>
+                <div class="stat-info">
+                    <h3>Presupuesto</h3>
+                    <p class="stat-val" id="val-total">S/ 4,545.00</p>
+                </div>
+            </div>
+            <div class="stat-card total-paid">
+                <div class="stat-icon"><i class="fa-solid fa-circle-check"></i></div>
+                <div class="stat-info">
+                    <h3>Pagado</h3>
+                    <p class="stat-val text-emerald" id="val-paid">S/ 0.00</p>
+                </div>
+            </div>
+            <div class="stat-card total-pending">
+                <div class="stat-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                <div class="stat-info">
+                    <h3>Pendiente</h3>
+                    <p class="stat-val text-warning" id="val-pending">S/ 4,545.00</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Progress Tracker -->
+        <section class="progress-section">
+            <div class="progress-info">
+                <span>Progreso de Pagos</span>
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="main-progress-bar" style="width: 0%"></div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- TAB 1: ITINERARIO -->
+            <div id="tab-itinerary" class="tab-pane active">
+                <div class="section-title">
+                    <h2>📅 Cronograma de Viaje</h2>
+                    <p>Detalles diarios, comidas y actividades</p>
+                </div>
+                
+                <!-- Day Selector (Mobile Carousel style) -->
+                <div class="day-selector">
+                    <button class="day-btn active" data-day="1">M4</button>
+                    <button class="day-btn" data-day="2">M5</button>
+                    <button class="day-btn" data-day="3">J6</button>
+                    <button class="day-btn" data-day="4">V7</button>
+                    <button class="day-btn" data-day="5">S8</button>
+                    <button class="day-btn" data-day="6">D9</button>
+                    <button class="day-btn" data-day="7">L10</button>
+                    <button class="day-btn" data-day="8">M11</button>
+                </div>
+
+                <!-- Daily Content Cards -->
+                <div class="daily-cards-container">
+                    
+                    <!-- Day 1 -->
+                    <div class="day-card active" id="day-card-1">
+                        <div class="day-header">
+                            <span class="day-number">Día 1</span>
+                            <h3>Martes 4 de Agosto</h3>
+                            <span class="day-desc">Bienvenida & Barranco</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">03:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>✈️ Arribo de Angelica a Lima (LA 4906)</h4>
+                                    <p>Coordinar Uber Comfort/Black desde el aeropuerto Jorge Chávez hacia el departamento de Miraflores (Av. Benavides 1130).</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">05:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🌅 Tarde en el Malecón & Barranco</h4>
+                                    <p>Paseo por el Parque del Amor y luego Uber a Barranco para ver el atardecer en el Puente de los Suspiros y la Bajada de Baños.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍽️ Cena de Bienvenida en Larcomar</h4>
+                                    <p>Reserva en <strong>Popular</strong> o <strong>Mangos</strong> con vista panorámica al mar.</p>
+                                    <span class="badge badge-emerald">Presupuesto: S/ 160.00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 2 -->
+                    <div class="day-card" id="day-card-2">
+                        <div class="day-header">
+                            <span class="day-number">Día 2</span>
+                            <h3>Miércoles 5 de Agosto</h3>
+                            <span class="day-desc">Full-Day Paracas & Ica (Angelica)</span>
+                        </div>
+                        <div class="alert alert-info">
+                            <i class="fa-solid fa-info-circle"></i> <strong>Nota:</strong> José trabaja de 9 AM a 4 PM y tiene su sesión de <strong>Grounding C1</strong> de 8 PM a 9 PM.
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">04:30 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🚐 Partida de Angelica en el Tour</h4>
+                                    <p>Recojo en el departamento. Viaje al sur en bus turístico (Opción 1 - Todo Incluido).</p>
+                                    <span class="badge badge-purple">Recojo en puerta</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:00 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🌊 Islas Ballestas (Paracas)</h4>
+                                    <p>Tour en deslizador para ver los lobos marinos, pingüinos y El Candelabro.</p>
+                                    <span class="badge badge-blue">Tasas del puerto incluidas</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">01:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍽️ Almuerzo en Ica (Incluido)</h4>
+                                    <p>Comida típica iqueña incluida en el viñedo local artesanal.</p>
+                                    <span class="badge badge-emerald">Almuerzo Incluido</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">02:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🏜️ Aventura en Huacachina & Cata</h4>
+                                    <p>Paseo en areneros (buggies), sandboarding en las dunas y degustación libre de piscos y vinos.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">10:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🏠 Retorno y Cena en Casa</h4>
+                                    <p>Llegada del bus de Angelica y cena tranquila en el departamento para descansar.</p>
+                                    <span class="badge badge-dark">Cena en casa</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 3 -->
+                    <div class="day-card" id="day-card-3">
+                        <div class="day-header">
+                            <span class="day-number">Día 3</span>
+                            <h3>Jueves 6 de Agosto</h3>
+                            <span class="day-desc">Centro Histórico & Circuito del Agua</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">09:00 AM</div>
+                                <div class="timeline-content">
+                                    <h4>💼 Mañana Libre / Oficina</h4>
+                                    <p>José en oficina. Angelica libre para descansar o pasear por Larcomar.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">04:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🏛️ Centro Histórico de Lima</h4>
+                                    <p>Recorrido por la Plaza de Armas, Palacio de Gobierno al atardecer y las catacumbas del Convento de San Francisco.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">07:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>⛲ Circuito Mágico del Agua</h4>
+                                    <p>Show de fuentes de luces y música en el Parque de la Reserva. Entrada S/ 4.00 p/p.</p>
+                                    <span class="badge badge-blue">Entrada: S/ 8.00 (Ambos)</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:45 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍜 Cena en Maketto (Miraflores)</h4>
+                                    <p>Excelente ramen y comida asiática en uno de los lugares más cool de Miraflores.</p>
+                                    <span class="badge badge-emerald">Presupuesto: S/ 160.00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 4 -->
+                    <div class="day-card" id="day-card-4">
+                        <div class="day-header">
+                            <span class="day-number">Día 4</span>
+                            <h3>Viernes 7 de Agosto</h3>
+                            <span class="day-desc">Almuerzo Marino & Vuelo a Cusco</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">09:00 AM</div>
+                                <div class="timeline-content">
+                                    <h4>💼 Trabajo & Maletas</h4>
+                                    <p>José en oficina hasta las 4 PM. Angelica cierra equipaje en el departamento.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">04:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🐟 Almuerzo Marino en Punto Azul</h4>
+                                    <p>Ceviches y tiraditos de despedida en Miraflores antes del viaje.</p>
+                                    <span class="badge badge-emerald">Presupuesto: S/ 120.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">06:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🚕 Traslado al Aeropuerto</h4>
+                                    <p>Uber hacia el aeropuerto Jorge Chávez para el vuelo nocturno.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">09:10 PM</div>
+                                <div class="timeline-content">
+                                    <h4>✈️ Vuelo Lima ➔ Cusco (LA 2200)</h4>
+                                    <p>Aterrizaje en Cusco a las 10:35 PM. Traslado privado al hotel incluido por la agencia Apu Andino.</p>
+                                    <span class="badge badge-purple">Traslado incluido en Cusco</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 5 -->
+                    <div class="day-card" id="day-card-5">
+                        <div class="day-header">
+                            <span class="day-number">Día 5</span>
+                            <h3>Sábado 8 de Agosto</h3>
+                            <span class="day-desc">Valle Sagrado VIP (Pisac & Ollanta)</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">08:00 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🏔️ Tour Valle Sagrado VIP</h4>
+                                    <p>Visita a Pisac y las impresionantes ruinas y fortaleza de Ollantaytambo. Almuerzo buffet en Urubamba incluido.</p>
+                                    <span class="badge badge-purple">Servicio Apu Andino</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">04:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🚊 Tren Vistadome Observatory a Aguas Calientes</h4>
+                                    <p>Viaje escénico en tren panorámico con show de danzas y música a bordo.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">06:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🏨 Check-in en Aguas Calientes & Cena</h4>
+                                    <p>Acomodación en el hotel y cena libre en el pueblo al pie de Machu Picchu.</p>
+                                    <span class="badge badge-emerald">Cena Bolsillo: S/ 140.00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 6 -->
+                    <div class="day-card" id="day-card-6">
+                        <div class="day-header">
+                            <span class="day-number">Día 6</span>
+                            <h3>Domingo 9 de Agosto</h3>
+                            <span class="day-desc">El Santuario de Machu Picchu</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">07:30 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🚌 Ascenso al Santuario</h4>
+                                    <p>Subida en buses Consettur hacia la entrada arqueológica de Machu Picchu.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:30 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🏛️ Visita Guiada de Machu Picchu (Privada)</h4>
+                                    <p>Recorrido con guía privado por el Circuito 3 y la clásica foto postal del Circuito 1.</p>
+                                    <span class="badge badge-purple">Guía privado incluido</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">12:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍔 Almuerzo en Aguas Calientes</h4>
+                                    <p>Comida en el pueblo antes de tomar el tren de retorno.</p>
+                                    <span class="badge badge-emerald">Almuerzo Bolsillo: S/ 180.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">04:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🚊 Retorno en Tren Vistadome & Traslado a Cusco</h4>
+                                    <p>Tren Aguas Calientes ➔ Ollantaytambo y traslado terrestre privado a tu hotel en Cusco.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:30 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍲 Cena ligera en Cusco</h4>
+                                    <p>Cena libre ligera para contrarrestar la altura de Cusco.</p>
+                                    <span class="badge badge-emerald">Cena Bolsillo: S/ 100.00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 7 -->
+                    <div class="day-card" id="day-card-7">
+                        <div class="day-header">
+                            <span class="day-number">Día 7</span>
+                            <h3>Lunes 10 de Agosto</h3>
+                            <span class="day-desc">Vuelo de retorno & Cena en 7 Sopas</span>
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">08:30 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🚕 Traslado al Aeropuerto de Cusco</h4>
+                                    <p>Recojo por Apu Andino en el hotel y traslado al aeropuerto.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">10:40 AM</div>
+                                <div class="timeline-content">
+                                    <h4>✈️ Vuelo Cusco ➔ Lima (LA 2014)</h4>
+                                    <p>Aterrizaje en Lima a las 12:15 PM. Uber directo al departamento en Miraflores para descansar por la tarde.</p>
+                                    <span class="badge badge-blue">Traslado 3: S/ 85.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">08:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>🍲 Cena de Despedida en 7 Sopas</h4>
+                                    <p>Visita al local de <strong>7 Sopas en Parque Kennedy</strong> (Calle de las Pizzas). Caldos, sopas y pan recién salido del horno.</p>
+                                    <span class="badge badge-emerald">Presupuesto: S/ 80.00</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Day 8 -->
+                    <div class="day-card" id="day-card-8">
+                        <div class="day-header">
+                            <span class="day-number">Día 8</span>
+                            <h3>Martes 11 de Agosto</h3>
+                            <span class="day-desc">Desayuno & Despedida a Cali</span>
+                        </div>
+                        <div class="alert alert-warning">
+                            <i class="fa-solid fa-clock"></i> <strong>Nota:</strong> José trabaja de 9 AM a 3 PM este día.
+                        </div>
+                        <ul class="timeline">
+                            <li>
+                                <div class="time">07:30 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🥐 Desayuno en El Pan de la Chola</h4>
+                                    <p>Desayuno juntos temprano antes de que José vaya a la oficina. Excelente pan artesanal y café de especialidad.</p>
+                                    <span class="badge badge-emerald">Presupuesto: S/ 70.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">10:00 AM</div>
+                                <div class="timeline-content">
+                                    <h4>🚕 Salida de Angelica al Aeropuerto</h4>
+                                    <p>Check-out del departamento. Uber Comfort/Black hacia el aeropuerto Jorge Chávez.</p>
+                                    <span class="badge badge-blue">Traslado 4: S/ 85.00</span>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="time">01:00 PM</div>
+                                <div class="timeline-content">
+                                    <h4>✈️ Vuelo de Retorno de Angelica a Cali</h4>
+                                    <p>Vuelo internacional LATAM de regreso a Colombia (con escala en Bogotá). Fin del viaje.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 2: SEGUIMIENTO FINANCIERO -->
+            <div id="tab-tracker" class="tab-pane">
+                <div class="section-title">
+                    <h2>📋 Lista de Pagos y Verificación</h2>
+                    <p>Marca las actividades ya pagadas para recalcular tu saldo en tiempo real</p>
+                </div>
+                
+                <div class="checklist-container" id="checklist-render">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- TAB 3: CLIMA Y ALERTAS -->
+            <div id="tab-weather" class="tab-pane">
+                <div class="section-title">
+                    <h2>🌦️ Clima & Variables de Viaje</h2>
+                    <p>Alertas climáticas y de equipaje para cada región</p>
+                </div>
+
+                <div class="weather-cards-grid">
+                    
+                    <div class="weather-card">
+                        <div class="weather-card-header">
+                            <div class="icon"><i class="fa-solid fa-cloud"></i></div>
+                            <h3>Lima (Costa)</h3>
+                        </div>
+                        <p class="temp">14°C - 20°C</p>
+                        <p class="desc">Gris, húmedo y fresco. Humedad sobre 90% con garúas.</p>
+                        <ul class="weather-tips">
+                            <li>Llevar abrigo ligero y pantalones gruesos (jeans/suéter).</li>
+                            <li>La humedad aumenta la sensación de frío en las noches.</li>
+                        </ul>
+                    </div>
+
+                    <div class="weather-card">
+                        <div class="weather-card-header">
+                            <div class="icon-sun"><i class="fa-solid fa-wind"></i></div>
+                            <h3>Paracas & Ica (Desierto)</h3>
+                        </div>
+                        <p class="temp">13°C - 26°C</p>
+                        <p class="desc">Soleado de día, fresco y muy ventoso por la tarde.</p>
+                        <div class="alert-inline alert-warning">
+                            <i class="fa-solid fa-triangle-exclamation"></i> <strong>Viento Paracas:</strong> Cortavientos obligatorio.
+                        </div>
+                        <ul class="weather-tips">
+                            <li>Usa zapatillas cerradas para el desierto (arena caliente).</li>
+                            <li>Lentes de sol para los areneros (protección de arena).</li>
+                            <li>Sujetador para gorros o sombreros en la lancha.</li>
+                        </ul>
+                    </div>
+
+                    <div class="weather-card">
+                        <div class="weather-card-header">
+                            <div class="icon-sun"><i class="fa-solid fa-sun"></i></div>
+                            <h3>Cusco (Sierra)</h3>
+                        </div>
+                        <p class="temp">0°C - 21°C</p>
+                        <p class="desc">Soleado y despejado de día, frío extremo y heladas de noche.</p>
+                        <div class="alert-inline alert-info">
+                            <i class="fa-solid fa-mountain"></i> <strong>Soroche (Altitud):</strong> 3,400 msnm.
+                        </div>
+                        <ul class="weather-tips">
+                            <li>Vístete como "cebolla" (en capas intercambiables).</li>
+                            <li>Radiación solar extrema de día: usa bloqueador solar SPF 50+.</li>
+                            <li>Evita comidas pesadas las primeras 24 horas y toma mate de coca.</li>
+                        </ul>
+                    </div>
+
+                    <div class="weather-card">
+                        <div class="weather-card-header">
+                            <div class="icon"><i class="fa-solid fa-bug"></i></div>
+                            <h3>Machu Picchu (Selva Alta)</h3>
+                        </div>
+                        <p class="temp">8°C - 23°C</p>
+                        <p class="desc">Templado y más húmedo. Clima de ceja de selva.</p>
+                        <div class="alert-inline alert-danger">
+                            <i class="fa-solid fa-shield-virus"></i> <strong>Repelente Obligatorio:</strong> Mosquitos.
+                        </div>
+                        <ul class="weather-tips">
+                            <li>Usa repelente con DEET (hay mosquitos pequeños muy fastidiosos).</li>
+                            <li>Manga larga delgada y pantalones largos recomendados.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 4: RECURSOS -->
+            <div id="tab-resources" class="tab-pane">
+                <div class="section-title">
+                    <h2>🗺️ Recursos & Direcciones</h2>
+                    <p>Acceso rápido a mapas y links de interés</p>
+                </div>
+
+                <div class="resources-grid">
+                    
+                    <div class="resource-card">
+                        <h3>📍 Base en Lima</h3>
+                        <p>Av. Benavides 1130, Dpto 503, Miraflores.</p>
+                        <a href="https://maps.google.com/?q=Av.+Alfredo+Benavides+1130,+Miraflores,+Lima" target="_blank" class="btn btn-sm btn-outline"><i class="fa-solid fa-location-dot"></i> Ver en Google Maps</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>🍜 7 Sopas (Parque Kennedy)</h3>
+                        <p>Calle San Ramon 281 (Calle de las Pizzas), Miraflores.</p>
+                        <a href="https://maps.google.com/?q=7+Sopas+Miraflores" target="_blank" class="btn btn-sm btn-outline"><i class="fa-solid fa-utensils"></i> Cómo llegar</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>✈️ Check-in de Vuelos (LATAM)</h3>
+                        <p>Revisar estados de vuelo y hacer check-in 48 horas antes.</p>
+                        <div class="pnrs-box">
+                            <div><strong>Cali-Lima:</strong> <code>ITSNNN</code> (Angelica)</div>
+                            <div><strong>Lima-Cusco:</strong> <code>KMTEYF</code> / <code>KDIKGN</code></div>
+                        </div>
+                        <a href="https://www.latamairlines.com/" target="_blank" class="btn btn-sm btn-primary"><i class="fa-solid fa-plane"></i> Web de LATAM</a>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>📞 Contacto Apu Andino</h3>
+                        <p>Agencia contratada en Cusco. Coordinar saldo restante (S/ 2,335).</p>
+                        <a href="https://wa.me/51984714300" target="_blank" class="btn btn-sm btn-emerald"><i class="fa-brands fa-whatsapp"></i> Escribir a Mary Cruz</a>
+                    </div>
+
+                </div>
+
+                <!-- Custom Notes Widget -->
+                <div class="notes-widget">
+                    <h3><i class="fa-solid fa-pen-to-square"></i> Notas Personales (Se guardan en tu celular)</h3>
+                    <textarea id="personal-notes" placeholder="Escribe aquí notas rápidas, códigos de reserva, números telefónicos o pendientes..."></textarea>
+                    <div class="notes-footer">
+                        <span id="notes-status">Guardado automáticamente</span>
+                        <button id="clear-data-btn" class="btn-clear"><i class="fa-solid fa-trash"></i> Restablecer todo</button>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation Bar (Mobile Native Style) -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="tab-itinerary">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Itinerario</span>
+            </button>
+            <button class="nav-item" data-target="tab-tracker">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Pagos</span>
+            </button>
+            <button class="nav-item" data-target="tab-weather">
+                <i class="fa-solid fa-cloud-sun"></i>
+                <span>Clima</span>
+            </button>
+            <button class="nav-item" data-target="tab-resources">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Recursos</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
