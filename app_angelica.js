@@ -65,6 +65,7 @@ const PACKING_LIST = [
 
 // Coordenadas de Referencia para los Destinos (Miraflores base por defecto)
 const LIMA_BASE_COORDS = { lat: -12.1287, lon: -77.0223 }; // Av. Benavides 1130
+const CALI_BASE_COORDS = { lat: 3.466876, lon: -76.488552 }; // Casa de Angelica en Cali
 
 // ==========================================
 // ESTADO DE LA APLICACIÓN
@@ -212,7 +213,11 @@ function toRad(value) {
 }
 
 function calculateRouteFromBase() {
-    calculateAndDisplayRoute(LIMA_BASE_COORDS, true);
+    if (activeDay === "1" || activeDay === "8") {
+        calculateAndDisplayRoute(CALI_BASE_COORDS, true);
+    } else {
+        calculateAndDisplayRoute(LIMA_BASE_COORDS, true);
+    }
 }
 
 function calculateAndDisplayRoute(origin, isBase = false) {
