@@ -90,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupNotes();
     setupResetButton();
     initGeolocation();
+    startLocalClock();
 });
 
 // ==========================================
@@ -323,6 +324,9 @@ function setupNavigation() {
             } else {
                 calculateRouteFromBase();
             }
+            
+            // Actualizar ubicación del reloj de inmediato
+            updateClockLocation();
         });
     });
 }
@@ -405,4 +409,71 @@ function setupResetButton() {
             }, 3000);
         }
     });
+}
+
+// ==========================================
+// RELOJ LOCAL EN TIEMPO REAL
+// ==========================================
+function startLocalClock() {
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+function updateClock() {
+    const clockEl = document.getElementById("clock-hms");
+    if (!clockEl) return;
+    try {
+        const timeString = new Date().toLocaleTimeString('en-US', {
+            timeZone: 'America/Bogota', // UTC-5 (Bogotá/Lima/Cali timezone)
+            hour: 'numeric',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+        });
+        const parts = timeString.split(' ');
+        const time = parts[0];
+        const ampm = parts[1] || '';
+        clockEl.innerHTML = `${time} <small style="font-size: 0.75rem; color: var(--text-secondary); margin-left: 2px;">${ampm}</small>`;
+    } catch (e) {
+        // Fallback for environment/browser compatibility
+        const now = new Date();
+        let hours = now.getHours();
+        let minutes = now.getMinutes();
+        let seconds = now.getSeconds();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        clockEl.innerHTML = `${hours}:${minutes}:${seconds} <small style="font-size: 0.75rem; color: var(--text-secondary); margin-left: 2px;">${ampm}</small>`;
+    }
+    updateClockLocation();
+}
+
+function updateClockLocation() {
+    const cityEl = document.getElementById("clock-city");
+    if (!cityEl) return;
+    if (userLocation) {
+        const lat = userLocation.lat;
+        const lon = userLocation.lon;
+        // Check ranges for Cali, Lima, Cusco
+        if (lat >= 3.0 && lat <= 4.0 && lon >= -77.0 && lon <= -76.0) {
+            cityEl.innerHTML = "📍 Cali, Colombia";
+        } else if (lat >= -12.5 && lat <= -11.8 && lon >= -77.3 && lon <= -76.8) {
+            cityEl.innerHTML = "📍 Lima, Perú";
+        } else if (lat >= -13.7 && lat <= -13.3 && lon >= -72.2 && lon <= -71.7) {
+            cityEl.innerHTML = "📍 Cusco, Perú";
+        } else {
+            cityEl.innerHTML = "📍 Ubicación GPS activa";
+        }
+    } else {
+        // Fallback predefinido según el día activo de viaje
+        if (activeDay === "1" || activeDay === "8") {
+            cityEl.innerHTML = "📍 Cali (Predefinido)";
+        } else if (["4", "5", "6", "7"].includes(activeDay)) {
+            cityEl.innerHTML = "📍 Cusco (Predefinido)";
+        } else {
+            cityEl.innerHTML = "📍 Lima (Predefinido)";
+        }
+    }
 }

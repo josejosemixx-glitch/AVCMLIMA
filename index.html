@@ -25,14 +25,21 @@
                 <p class="subtitle">Bitácora & Control Financiero en Tiempo Real</p>
             </div>
             
-            <!-- Countdown Widget -->
-            <div id="countdown-widget" class="countdown-widget">
-                <div class="countdown-time">
-                    <span id="countdown-days">00</span><small>d</small> : 
-                    <span id="countdown-hours">00</span><small>h</small> : 
-                    <span id="countdown-mins">00</span><small>m</small>
+            <!-- Countdown & Local Clock Container -->
+            <div class="header-widgets-grid">
+                <div id="countdown-widget" class="countdown-widget">
+                    <div class="countdown-time">
+                        <span id="countdown-days">00</span><small>d</small> : 
+                        <span id="countdown-hours">00</span><small>h</small> : 
+                        <span id="countdown-mins">00</span><small>m</small>
+                    </div>
+                    <div class="countdown-label">Falta para el viaje</div>
                 </div>
-                <div class="countdown-label">Falta para el viaje</div>
+                
+                <div id="local-clock-widget" class="local-clock-widget">
+                    <div class="clock-time" id="clock-hms">00:00:00</div>
+                    <div class="clock-label" id="clock-city">📍 Obteniendo ubicación...</div>
+                </div>
             </div>
         </header>
 
@@ -142,6 +149,24 @@
                                         <h4>✈️ Vuelo Cali ➔ Bogotá (Vuelo LA 4066)</h4>
                                     </div>
                                     <p>Salida del primer vuelo hacia Bogotá. Duración: 1 hora y 10 minutos. Llegada a El Dorado a las 10:00 AM.</p>
+                                </div>
+                            </li>
+                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
+                                <div class="time">10:00 AM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>✈️ Llegada a Bogotá (El Dorado)</h4>
+                                    </div>
+                                    <p>Aterrizaje en Bogotá (escala). Conexión internacional. Tiempo de escala: 1h 55m.</p>
+                                </div>
+                            </li>
+                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Migración de Salida BOG">
+                                <div class="time">10:20 AM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>📋 Control de Emigración (BOG)</h4>
+                                    </div>
+                                    <p>Trámite obligatorio de salida de Colombia en el Aeropuerto El Dorado. Recuerda completar el pre-registro de Check-Mig de salida y presentar tu Cédula.</p>
                                 </div>
                             </li>
                             <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
@@ -508,6 +533,24 @@
                                 <div class="timeline-content">
                                     <h4>✈️ Vuelo Lima ➔ Bogotá (Vuelo LA 2386)</h4>
                                     <p>Vuelo internacional de regreso de Angelica. Duración: 3 horas y 15 minutos. Llegada a Bogotá a las 04:15 PM.</p>
+                                </div>
+                            </li>
+                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
+                                <div class="time">04:15 PM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>✈️ Llegada a Bogotá (El Dorado)</h4>
+                                    </div>
+                                    <p>Aterrizaje del vuelo internacional de Lima. Conexión nacional. Tiempo de escala: 2 horas.</p>
+                                </div>
+                            </li>
+                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Ingreso a Colombia BOG">
+                                <div class="time">04:30 PM</div>
+                                <div class="timeline-content">
+                                    <div class="content-header">
+                                        <h4>📋 Control de Inmigración (BOG)</h4>
+                                    </div>
+                                    <p>Trámite obligatorio de ingreso a Colombia y control de aduanas en el Aeropuerto El Dorado antes de abordar tu conexión nacional a Cali. Recuerda llenar el Check-Mig de entrada.</p>
                                 </div>
                             </li>
                             <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">

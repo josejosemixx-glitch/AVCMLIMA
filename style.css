@@ -1104,3 +1104,41 @@ dialog::backdrop {
     font-style: normal;
     font-weight: 500;
 }
+
+/* Header Widgets Grid */
+.header-widgets-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+@media (min-width: 480px) {
+    .header-widgets-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.local-clock-widget {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-md);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clock-time {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.clock-label {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
