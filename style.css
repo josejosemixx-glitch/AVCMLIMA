@@ -4,7 +4,7 @@
 :root {
     --bg-main: #0b0f19;
     --bg-surface: #161e2e;
-    --bg-glass: rgba(22, 30, 46, 0.7);
+    --bg-glass: rgba(22, 30, 46, 0.75);
     --border-glass: rgba(255, 255, 255, 0.08);
     
     --text-primary: #f3f4f6;
@@ -77,7 +77,7 @@ body {
    ========================================== */
 .app-container {
     width: 100%;
-    max-width: 480px; /* Fixed width to feel like a mobile app even on desktop */
+    max-width: 480px; /* Mobile layout */
     min-height: 100vh;
     background-color: var(--bg-main);
     display: flex;
@@ -219,6 +219,7 @@ body {
 
 .text-emerald { color: var(--emerald); }
 .text-warning { color: var(--warning); }
+.text-cyan { color: var(--primary); }
 
 /* ==========================================
    HEADER SECTION
@@ -364,6 +365,93 @@ body {
     background: linear-gradient(to right, var(--secondary), var(--primary));
     border-radius: 4px;
     transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================
+   GEOLOCATION WIDGET
+   ========================================== */
+.location-widget-container {
+    padding: 0 20px 20px;
+}
+.location-widget {
+    background: rgba(6, 182, 212, 0.04);
+    border: 1px solid rgba(6, 182, 212, 0.15);
+    border-radius: var(--border-radius-md);
+    padding: 14px;
+    box-shadow: var(--shadow-sm);
+}
+.loc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.loc-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+.btn-refresh-loc {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 4px;
+    transition: var(--transition);
+}
+.btn-refresh-loc:hover {
+    transform: rotate(180deg);
+}
+.loc-status-text {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+.loc-results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 10px;
+}
+.loc-destination-info {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.loc-data-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.loc-data-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-glass);
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+.loc-data-item small {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+.loc-data-item span {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+.btn-route-maps {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    padding: 8px 12px;
+    border-radius: 8px;
 }
 
 /* ==========================================
@@ -525,21 +613,76 @@ body {
     border-radius: var(--border-radius-md);
     padding: 14px;
 }
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 6px;
+}
 .timeline-content h4 {
     font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    flex-grow: 1;
+}
+.weather-tag {
+    font-size: 0.7rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-glass);
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+.weather-tag-danger {
+    font-size: 0.7rem;
+    background-color: var(--danger-glow);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    padding: 3px 8px;
+    border-radius: 12px;
+    color: #f87171;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 .timeline-content p {
     font-size: 0.8rem;
     color: var(--text-secondary);
+}
+.clothing-tips {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #a7f3d0; /* Soft green */
+    margin-top: 8px;
+    background-color: rgba(16, 185, 129, 0.06);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+.clothing-tips-warning {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    color: #fde047; /* Soft yellow */
+    margin-top: 8px;
+    background-color: rgba(245, 158, 11, 0.06);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(245, 158, 11, 0.1);
 }
 .timeline-content .badge {
     margin-top: 10px;
 }
 
 /* ==========================================
-   TAB 2: SEGUIMIENTO FINANCIERO
+   TAB 2 & 3: LISTS (SEGUIMIENTO & MALETA)
    ========================================== */
 .checklist-day-group {
     margin-bottom: 24px;
@@ -574,7 +717,7 @@ body {
     opacity: 0.6;
 }
 
-/* Custom Checkbox style */
+/* Custom Checkbox */
 .checkbox-container {
     width: 24px;
     height: 24px;
@@ -624,7 +767,7 @@ body {
 }
 
 /* ==========================================
-   TAB 3: CLIMA
+   TAB 4: CLIMA
    ========================================== */
 .weather-cards-grid {
     display: flex;
@@ -687,7 +830,7 @@ body {
 }
 
 /* ==========================================
-   TAB 4: RECURSOS
+   TAB 5: RECURSOS
    ========================================== */
 .resources-grid {
     display: grid;

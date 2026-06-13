@@ -1,5 +1,5 @@
 // ==========================================
-// CONFIGURACIÓN DE DATOS BASE (CHECKLIST)
+// CONFIGURACIÓN DE DATOS BASE (CHECKLIST PAGOS)
 // ==========================================
 const DEFAULT_CHECKLIST = [
     {
@@ -83,12 +83,85 @@ const DEFAULT_CHECKLIST = [
 ];
 
 // ==========================================
+// CONFIGURACIÓN DE LISTA DE VIAJE (ANGELICA)
+// ==========================================
+const PACKING_LIST = [
+    {
+        category: "📄 Documentos Importantes",
+        items: [
+            { id: "pack_pasaporte", text: "Cédula de Ciudadanía Colombiana (y Pasaporte)" },
+            { id: "pack_vuelos", text: "Boletos aéreos de LATAM Cali-Lima impresos / digitales" },
+            { id: "pack_vuelos_cusco", text: "Boletos aéreos de LATAM Lima-Cusco" },
+            { id: "pack_seguro", text: "Tarjeta de Seguro Médico Internacional" }
+        ]
+    },
+    {
+        category: "🧥 Ropa para Lima (Frío/Humedad)",
+        items: [
+            { id: "pack_lima_abrigo", text: "Casaca ligera o suéter de abrigo intermedio (1-2)" },
+            { id: "pack_lima_pantalon", text: "Pantalones largos abrigados (jeans o leggings)" },
+            { id: "pack_lima_polos", text: "Polos o remeras de manga larga" }
+        ]
+    },
+    {
+        category: "desierto 🏜️ Ropa para Ica/Paracas (Sol/Viento)",
+        items: [
+            { id: "pack_cortavientos", text: "🧥 Casaca Cortavientos Gruesa (¡Crucial para la lancha en Paracas!)" },
+            { id: "pack_lentes", text: "🕶️ Lentes de sol (areneros de Huacachina y sandboarding)" },
+            { id: "pack_zapatillas", text: "👟 Zapatillas deportivas cerradas (para caminar en arena)" },
+            { id: "pack_gorro", text: "🧢 Gorro o sombrero con cordón / sujetador" }
+        ]
+    },
+    {
+        category: "❄️ Ropa para Cusco (Invierno Andino - Frío Extremo)",
+        items: [
+            { id: "pack_cusco_abrigo", text: "Casaca térmica gruesa de invierno (plumas o acolchada)" },
+            { id: "pack_cusco_termicos", text: "Camiseta y calzas térmicas (para usar debajo de la ropa de noche)" },
+            { id: "pack_cusco_lana", text: "Gorro de lana, guantes abrigados y medias de lana gruesa" }
+        ]
+    },
+    {
+        category: "🦟 Ropa para Machu Picchu (Selva Alta)",
+        items: [
+            { id: "pack_mp_repelente", text: "🧴 Repelente de insectos fuerte con DEET (¡Muy importante!)" },
+            { id: "pack_mp_camisas", text: "Polos manga larga delgados (colores claros para mosquitos)" },
+            { id: "pack_mp_trekking", text: "Pantalones de senderismo cómodos y ligeros" },
+            { id: "pack_mp_lluvia", text: "Poncho o impermeable ligero para lluvias sorpresivas" }
+        ]
+    },
+    {
+        category: "💊 Salud y Cuidado Personal",
+        items: [
+            { id: "pack_bloqueador", text: "☀️ Bloqueador solar SPF 50+ (altitud quema sumamente rápido)" },
+            { id: "pack_balsamo", text: "Bálsamo labial protector (el aire andino reseca mucho)" },
+            { id: "pack_soroche", text: "Pastillas para el soroche o mareos (se compran también en Perú)" },
+            { id: "pack_cremas", text: "Crema hidratante corporal y facial" }
+        ]
+    },
+    {
+        category: "🔌 Tecnología",
+        items: [
+            { id: "pack_cargador", text: "Cargadores de celular y dispositivos" },
+            { id: "pack_powerbank", text: "🔋 Batería portátil cargada (indispensable para días largos)" }
+        ]
+    }
+];
+
+// Coordenadas de Referencia para los Destinos (Miraflores base por defecto)
+const LIMA_BASE_COORDS = { lat: -12.1287, lon: -77.0223 }; // Av. Benavides 1130
+
+// ==========================================
 // ESTADO DE LA APLICACIÓN
 // ==========================================
 let state = {
-    checkedItems: {}, // ID del item -> boolean
+    checkedItems: {},
+    packingItems: {},
     notes: ""
 };
+
+// Day index state
+let activeDay = "1";
+let userLocation = null;
 
 // ==========================================
 // INICIALIZACIÓN
@@ -96,28 +169,29 @@ let state = {
 document.addEventListener("DOMContentLoaded", () => {
     loadState();
     renderChecklist();
+    renderPackingList();
     updateCalculations();
     setupNavigation();
     setupCountdown();
     setupNotes();
     setupResetButton();
+    initGeolocation();
 });
 
 // ==========================================
-// CARGAR Y GUARDAR ESTADO (LocalStorage)
+// CARGAR Y GUARDAR ESTADO
 // ==========================================
 function loadState() {
     const savedState = localStorage.getItem("viaje_lima_cusco_state");
     if (savedState) {
         try {
             state = JSON.parse(savedState);
+            if (!state.checkedItems) state.checkedItems = {};
+            if (!state.packingItems) state.packingItems = {};
+            if (!state.notes) state.notes = "";
         } catch (e) {
             console.error("Error cargando estado:", e);
         }
-    } else {
-        // Inicializar estado vacío
-        state.checkedItems = {};
-        state.notes = "";
     }
 }
 
@@ -126,12 +200,11 @@ function saveState() {
 }
 
 // ==========================================
-// RENDERIZAR LISTA DE VERIFICACIÓN
+// RENDERIZAR LISTAS
 // ==========================================
 function renderChecklist() {
     const container = document.getElementById("checklist-render");
     if (!container) return;
-    
     container.innerHTML = "";
     
     DEFAULT_CHECKLIST.forEach(group => {
@@ -144,11 +217,8 @@ function renderChecklist() {
         
         group.items.forEach(item => {
             const isChecked = !!state.checkedItems[item.id];
-            
             const itemEl = document.createElement("div");
             itemEl.className = `checklist-item ${isChecked ? 'checked' : ''}`;
-            itemEl.dataset.id = item.id;
-            itemEl.dataset.cost = item.cost;
             
             itemEl.innerHTML = `
                 <div class="checkbox-container">
@@ -161,33 +231,60 @@ function renderChecklist() {
                 <div class="item-cost">S/ ${item.cost.toFixed(2)}</div>
             `;
             
-            // Evento Click para cambiar el estado
-            itemEl.addEventListener("click", () => toggleItem(item.id, itemEl));
+            itemEl.addEventListener("click", () => {
+                state.checkedItems[item.id] = !state.checkedItems[item.id];
+                itemEl.className = `checklist-item ${state.checkedItems[item.id] ? 'checked' : ''}`;
+                saveState();
+                updateCalculations();
+            });
             
             groupEl.appendChild(itemEl);
         });
-        
         container.appendChild(groupEl);
     });
 }
 
-// Cambiar estado de un item
-function toggleItem(id, element) {
-    const isChecked = !state.checkedItems[id];
-    state.checkedItems[id] = isChecked;
+function renderPackingList() {
+    const container = document.getElementById("packing-list-render");
+    if (!container) return;
+    container.innerHTML = "";
     
-    if (isChecked) {
-        element.classList.add("checked");
-    } else {
-        element.classList.remove("checked");
-    }
-    
-    saveState();
-    updateCalculations();
+    PACKING_LIST.forEach(group => {
+        const groupEl = document.createElement("div");
+        groupEl.className = "checklist-day-group";
+        
+        const titleEl = document.createElement("h3");
+        titleEl.textContent = group.category;
+        groupEl.appendChild(titleEl);
+        
+        group.items.forEach(item => {
+            const isChecked = !!state.packingItems[item.id];
+            const itemEl = document.createElement("div");
+            itemEl.className = `checklist-item ${isChecked ? 'checked' : ''}`;
+            
+            itemEl.innerHTML = `
+                <div class="checkbox-container">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <div class="item-info">
+                    <h4>${item.text}</h4>
+                </div>
+            `;
+            
+            itemEl.addEventListener("click", () => {
+                state.packingItems[item.id] = !state.packingItems[item.id];
+                itemEl.className = `checklist-item ${state.packingItems[item.id] ? 'checked' : ''}`;
+                saveState();
+            });
+            
+            groupEl.appendChild(itemEl);
+        });
+        container.appendChild(groupEl);
+    });
 }
 
 // ==========================================
-// CÁLCULOS EN TIEMPO REAL
+// CÁLCULOS FINANCIEROS
 // ==========================================
 function updateCalculations() {
     let totalBudget = 0;
@@ -205,10 +302,9 @@ function updateCalculations() {
     const totalPending = totalBudget - totalPaid;
     const progressPercent = totalBudget > 0 ? Math.round((totalPaid / totalBudget) * 100) : 0;
     
-    // Actualizar elementos DOM
-    document.getElementById("val-total").textContent = `S/ ${totalBudget.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    document.getElementById("val-paid").textContent = `S/ ${totalPaid.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-    document.getElementById("val-pending").textContent = `S/ ${totalPending.toLocaleString('es-PE', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    document.getElementById("val-total").textContent = `S/ ${totalBudget.toLocaleString('es-PE', { minimumFractionDigits: 2 })}`;
+    document.getElementById("val-paid").textContent = `S/ ${totalPaid.toLocaleString('es-PE', { minimumFractionDigits: 2 })}`;
+    document.getElementById("val-pending").textContent = `S/ ${totalPending.toLocaleString('es-PE', { minimumFractionDigits: 2 })}`;
     
     const progressBar = document.getElementById("main-progress-bar");
     const progressText = document.getElementById("progress-percentage");
@@ -220,7 +316,131 @@ function updateCalculations() {
 }
 
 // ==========================================
-// NAVEGACIÓN Y EVENTOS DE PESTAÑAS
+// GEOLOCALIZACIÓN Y TIEMPO DE VIAJE
+// ==========================================
+function initGeolocation() {
+    const btnUpdate = document.getElementById("btn-update-loc");
+    if (btnUpdate) {
+        btnUpdate.addEventListener("click", () => {
+            detectLocation();
+        });
+    }
+    detectLocation();
+}
+
+function detectLocation() {
+    const status = document.getElementById("loc-status");
+    if (!navigator.geolocation) {
+        status.textContent = "Geolocalización no soportada por el navegador. Usando coordenadas base.";
+        calculateRouteFromBase();
+        return;
+    }
+    
+    status.textContent = "Obteniendo ubicación del dispositivo...";
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            userLocation = {
+                lat: position.coords.latitude,
+                lon: position.coords.longitude
+            };
+            status.textContent = "📍 Ubicación del GPS activada con éxito.";
+            calculateAndDisplayRoute(userLocation);
+        },
+        (error) => {
+            console.warn("Error Geolocation:", error);
+            status.textContent = "⚠️ Ubicación desactivada. Usando base en Miraflores.";
+            calculateRouteFromBase();
+        },
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+    );
+}
+
+function calculateRouteFromBase() {
+    // Usar la base de Miraflores como origen
+    calculateAndDisplayRoute(LIMA_BASE_COORDS, true);
+}
+
+function calculateAndDisplayRoute(origin, isBase = false) {
+    const resultsContainer = document.getElementById("loc-results");
+    if (!resultsContainer) return;
+    
+    // Obtener la siguiente actividad con coordenadas para el Día Activo
+    const activeCard = document.getElementById(`day-card-${activeDay}`);
+    if (!activeCard) return;
+    
+    const nextActivityEl = activeCard.querySelector("li[data-lat]");
+    if (!nextActivityEl) {
+        resultsContainer.style.display = "none";
+        return;
+    }
+    
+    const destLat = parseFloat(nextActivityEl.dataset.lat);
+    const destLon = parseFloat(nextActivityEl.dataset.lon);
+    const destName = nextActivityEl.dataset.name;
+    
+    // Calcular distancia Haversine
+    const distanceKm = haversineDistance(origin, { lat: destLat, lon: destLon });
+    
+    // Estimar velocidad promedio según distancia (tránsito de ciudad vs carretera)
+    let speedKmh = 22; // 22 km/h velocidad promedio en Lima/Cusco por tráfico
+    if (distanceKm > 100) {
+        speedKmh = 70; // 70 km/h en carretera (Lima a Paracas)
+    }
+    
+    const timeHours = distanceKm / speedKmh;
+    const timeMinutes = Math.round(timeHours * 60);
+    
+    let timeString = "";
+    if (timeMinutes >= 60) {
+        const h = Math.floor(timeMinutes / 60);
+        const m = timeMinutes % 60;
+        timeString = `${h}h ${m}m`;
+    } else {
+        timeString = `${timeMinutes} min`;
+    }
+    
+    resultsContainer.innerHTML = `
+        <div class="loc-destination-info">
+            Hacia: <strong>${destName}</strong>
+        </div>
+        <div class="loc-data-grid">
+            <div class="loc-data-item">
+                <small>Distancia aprox.</small>
+                <span>${distanceKm.toFixed(1)} km</span>
+            </div>
+            <div class="loc-data-item">
+                <small>Tiempo estimado</small>
+                <span>${timeString}</span>
+            </div>
+        </div>
+        <a href="https://www.google.com/maps/dir/?api=1&origin=${origin.lat},${origin.lon}&destination=${destLat},${destLon}" 
+           target="_blank" class="btn btn-sm btn-primary btn-route-maps">
+            <i class="fa-solid fa-map-location-dot"></i> Navegar en Tiempo Real (Google Maps)
+        </a>
+    `;
+    resultsContainer.style.display = "flex";
+}
+
+// Haversine formula
+function haversineDistance(coords1, coords2) {
+    const R = 6371; // km
+    const dLat = toRad(coords2.lat - coords1.lat);
+    const dLon = toRad(coords2.lon - coords1.lon);
+    const lat1 = toRad(coords1.lat);
+    const lat2 = toRad(coords2.lat);
+
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.sin(dLon/2) * Math.sin(dLon/2) * Math.cos(lat1) * Math.cos(lat2); 
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    return R * c;
+}
+
+function toRad(value) {
+    return value * Math.PI / 180;
+}
+
+// ==========================================
+// NAVEGACIÓN Y TABS
 // ==========================================
 function setupNavigation() {
     // Bottom Nav
@@ -237,24 +457,30 @@ function setupNavigation() {
             item.classList.add("active");
             document.getElementById(target).classList.add("active");
             
-            // Scroll to top of content when tab changes
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
     
-    // Day Selector in Itinerary tab
+    // Day Selector
     const dayBtns = document.querySelectorAll(".day-btn");
     const dayCards = document.querySelectorAll(".day-card");
     
     dayBtns.forEach(btn => {
         btn.addEventListener("click", () => {
-            const selectedDay = btn.dataset.day;
+            activeDay = btn.dataset.day;
             
             dayBtns.forEach(b => b.classList.remove("active"));
             dayCards.forEach(c => c.classList.remove("active"));
             
             btn.classList.add("active");
-            document.getElementById(`day-card-${selectedDay}`).classList.add("active");
+            document.getElementById(`day-card-${activeDay}`).classList.add("active");
+            
+            // Recalcular ruta según el día seleccionado
+            if (userLocation) {
+                calculateAndDisplayRoute(userLocation);
+            } else {
+                calculateRouteFromBase();
+            }
         });
     });
 }
@@ -263,7 +489,6 @@ function setupNavigation() {
 // TEMPORIZADOR DE CUENTA REGRESIVA
 // ==========================================
 function setupCountdown() {
-    // Fecha del viaje: 4 de Agosto de 2026, 3:00 PM (15:00:00)
     const tripDate = new Date("2026-08-04T15:00:00").getTime();
     
     const countdownInterval = setInterval(() => {
@@ -288,16 +513,14 @@ function setupCountdown() {
 }
 
 // ==========================================
-// SECCIÓN DE NOTAS PERSONALES
+// AUTOSAVE NOTAS
 // ==========================================
 function setupNotes() {
     const notesTextarea = document.getElementById("personal-notes");
     const statusText = document.getElementById("notes-status");
     if (!notesTextarea) return;
     
-    // Cargar nota inicial
     notesTextarea.value = state.notes || "";
-    
     let saveTimeout;
     
     notesTextarea.addEventListener("input", () => {
@@ -310,28 +533,29 @@ function setupNotes() {
             saveState();
             statusText.textContent = "Guardado automáticamente";
             statusText.style.color = "var(--text-muted)";
-        }, 1000); // Guardado automático 1 segundo después de dejar de escribir
+        }, 1000);
     });
 }
 
 // ==========================================
-// BOTÓN RESTABLECER TODO
+// RESTABLECER TODO
 // ==========================================
 function setupResetButton() {
     const resetBtn = document.getElementById("clear-data-btn");
     if (!resetBtn) return;
     
     resetBtn.addEventListener("click", () => {
-        if (confirm("¿Estás seguro de que deseas restablecer todos tus pagos y notas? Esto borrará tu historial de guardado.")) {
+        if (confirm("¿Estás seguro de que deseas restablecer todos tus pagos, listas de equipaje y notas?")) {
             state.checkedItems = {};
+            state.packingItems = {};
             state.notes = "";
             saveState();
             
-            // Recargar notas y render de checklist
             const notesTextarea = document.getElementById("personal-notes");
             if (notesTextarea) notesTextarea.value = "";
             
             renderChecklist();
+            renderPackingList();
             updateCalculations();
             
             const statusText = document.getElementById("notes-status");

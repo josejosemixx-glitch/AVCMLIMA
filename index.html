@@ -72,6 +72,27 @@
             </div>
         </section>
 
+        <!-- Geolocation & Route Calculator Widget (Global) -->
+        <section class="location-widget-container">
+            <div class="location-widget" id="loc-widget">
+                <div class="loc-header">
+                    <div class="loc-title">
+                        <i class="fa-solid fa-location-crosshairs text-cyan"></i>
+                        <span>Tiempo Real de Desplazamiento</span>
+                    </div>
+                    <button class="btn-refresh-loc" id="btn-update-loc" title="Actualizar mi ubicación">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+                <div class="loc-body">
+                    <p id="loc-status" class="loc-status-text">Detectando tu ubicación...</p>
+                    <div id="loc-results" class="loc-results" style="display: none;">
+                        <!-- Dynamically filled with distance/time to next activity -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Main Content Area -->
         <main class="main-content">
             
@@ -79,10 +100,10 @@
             <div id="tab-itinerary" class="tab-pane active">
                 <div class="section-title">
                     <h2>📅 Cronograma de Viaje</h2>
-                    <p>Detalles diarios, comidas y actividades</p>
+                    <p>Detalles diarios, comidas, clima y vestimenta sugerida</p>
                 </div>
                 
-                <!-- Day Selector (Mobile Carousel style) -->
+                <!-- Day Selector -->
                 <div class="day-selector">
                     <button class="day-btn active" data-day="1">M4</button>
                     <button class="day-btn" data-day="2">M5</button>
@@ -105,25 +126,37 @@
                             <span class="day-desc">Bienvenida & Barranco</span>
                         </div>
                         <ul class="timeline">
-                            <li>
+                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez">
                                 <div class="time">03:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>✈️ Arribo de Angelica a Lima (LA 4906)</h4>
-                                    <p>Coordinar Uber Comfort/Black desde el aeropuerto Jorge Chávez hacia el departamento de Miraflores (Av. Benavides 1130).</p>
+                                    <div class="content-header">
+                                        <h4>✈️ Arribo de Angelica a Lima (LA 4906)</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Húmedo</span>
+                                    </div>
+                                    <p>Coordinar Uber desde el aeropuerto Jorge Chávez hacia el departamento de Miraflores.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca ligera / suéter.</div>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.1492" data-lon="-77.0220" data-name="Puente de los Suspiros, Barranco">
                                 <div class="time">05:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🌅 Tarde en el Malecón & Barranco</h4>
-                                    <p>Paseo por el Parque del Amor y luego Uber a Barranco para ver el atardecer en el Puente de los Suspiros y la Bajada de Baños.</p>
+                                    <div class="content-header">
+                                        <h4>🌅 Tarde en el Malecón & Barranco</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-smog"></i> 16°C Neblina</span>
+                                    </div>
+                                    <p>Paseo por el Parque del Amor y luego Uber a Barranco para ver el atardecer en el Puente de los Suspiros.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Suéter de abrigo o casaca de invierno ligero.</div>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.1311" data-lon="-77.0301" data-name="Larcomar, Miraflores">
                                 <div class="time">08:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🍽️ Cena de Bienvenida en Larcomar</h4>
-                                    <p>Reserva en <strong>Popular</strong> o <strong>Mangos</strong> con vista panorámica al mar.</p>
+                                    <div class="content-header">
+                                        <h4>🍽️ Cena de Bienvenida en Larcomar</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-wind"></i> 15°C Brisa fría</span>
+                                    </div>
+                                    <p>Reserva en Popular o Mangos con vista al mar.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Abrigo cortavientos o casaca abrigadora.</div>
                                     <span class="badge badge-emerald">Presupuesto: S/ 160.00</span>
                                 </div>
                             </li>
@@ -138,44 +171,63 @@
                             <span class="day-desc">Full-Day Paracas & Ica (Angelica)</span>
                         </div>
                         <div class="alert alert-info">
-                            <i class="fa-solid fa-info-circle"></i> <strong>Nota:</strong> José trabaja de 9 AM a 4 PM y tiene su sesión de <strong>Grounding C1</strong> de 8 PM a 9 PM.
+                            <i class="fa-solid fa-info-circle"></i> <strong>Nota:</strong> José trabaja de 9 AM a 4 PM y tiene su sesión de Grounding C1 de 8 PM a 9 PM.
                         </div>
                         <ul class="timeline">
-                            <li>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Av. Benavides 1130 (Recojo)">
                                 <div class="time">04:30 AM</div>
                                 <div class="timeline-content">
-                                    <h4>🚐 Partida de Angelica en el Tour</h4>
+                                    <div class="content-header">
+                                        <h4>🚐 Partida de Angelica en el Tour</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-moon"></i> 14°C Madrugada fría</span>
+                                    </div>
                                     <p>Recojo en el departamento. Viaje al sur en bus turístico (Opción 1 - Todo Incluido).</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Abrigo completo o polar (para dormir en el bus).</div>
                                     <span class="badge badge-purple">Recojo en puerta</span>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-13.8340" data-lon="-76.2514" data-name="Puerto de Paracas (Botes)">
                                 <div class="time">08:00 AM</div>
                                 <div class="timeline-content">
-                                    <h4>🌊 Islas Ballestas (Paracas)</h4>
-                                    <p>Tour en deslizador para ver los lobos marinos, pingüinos y El Candelabro.</p>
-                                    <span class="badge badge-blue">Tasas del puerto incluidas</span>
+                                    <div class="content-header">
+                                        <h4>🌊 Islas Ballestas (Paracas)</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-wind"></i> 17°C Viento fuerte</span>
+                                    </div>
+                                    <p>Tour en deslizador para ver lobos marinos, pingüinos y El Candelabro.</p>
+                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Casaca Cortavientos Obligatoria**, lentes y gorro con sujetador.</div>
+                                    <span class="badge badge-blue">Tasas incluidas</span>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-14.0875" data-lon="-75.7630" data-name="Bodega Vitivinícola Ica">
                                 <div class="time">01:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🍽️ Almuerzo en Ica (Incluido)</h4>
-                                    <p>Comida típica iqueña incluida en el viñedo local artesanal.</p>
+                                    <div class="content-header">
+                                        <h4>🍽️ Almuerzo en Ica (Incluido)</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-sun"></i> 25°C Soleado y cálido</span>
+                                    </div>
+                                    <p>Comida típica iqueña incluida en el viñedo artesanal.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Ropa ligera, polo de manga corta y lentes de sol.</div>
                                     <span class="badge badge-emerald">Almuerzo Incluido</span>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-14.0875" data-lon="-75.7630" data-name="Huacachina Oasis">
                                 <div class="time">02:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🏜️ Aventura en Huacachina & Cata</h4>
-                                    <p>Paseo en areneros (buggies), sandboarding en las dunas y degustación libre de piscos y vinos.</p>
+                                    <div class="content-header">
+                                        <h4>🏜️ Aventura en Huacachina & Cata</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-sun"></i> 26°C Sol radiante</span>
+                                    </div>
+                                    <p>Areneros (buggies), sandboarding en las dunas y degustación libre de piscos.</p>
+                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Zapatillas cerradas** (no sandalias) y lentes de sol para la arena.</div>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Departamento en Miraflores">
                                 <div class="time">10:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🏠 Retorno y Cena en Casa</h4>
+                                    <div class="content-header">
+                                        <h4>🏠 Retorno y Cena en Casa</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud-moon"></i> 15°C Fresco</span>
+                                    </div>
                                     <p>Llegada del bus de Angelica y cena tranquila en el departamento para descansar.</p>
                                     <span class="badge badge-dark">Cena en casa</span>
                                 </div>
@@ -191,33 +243,37 @@
                             <span class="day-desc">Centro Histórico & Circuito del Agua</span>
                         </div>
                         <ul class="timeline">
-                            <li>
-                                <div class="time">09:00 AM</div>
-                                <div class="timeline-content">
-                                    <h4>💼 Mañana Libre / Oficina</h4>
-                                    <p>José en oficina. Angelica libre para descansar o pasear por Larcomar.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-12.0464" data-lon="-77.0300" data-name="Plaza Mayor Centro de Lima">
                                 <div class="time">04:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🏛️ Centro Histórico de Lima</h4>
-                                    <p>Recorrido por la Plaza de Armas, Palacio de Gobierno al atardecer y las catacumbas del Convento de San Francisco.</p>
+                                    <div class="content-header">
+                                        <h4>🏛️ Centro Histórico de Lima</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Templado</span>
+                                    </div>
+                                    <p>Recorrido por la Plaza de Armas, Palacio de Gobierno y visita al Convento de San Francisco.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca ligera o abrigo intermedio.</div>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.0725" data-lon="-77.0345" data-name="Parque de la Reserva (Fuentes)">
                                 <div class="time">07:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>⛲ Circuito Mágico del Agua</h4>
-                                    <p>Show de fuentes de luces y música en el Parque de la Reserva. Entrada S/ 4.00 p/p.</p>
+                                    <div class="content-header">
+                                        <h4>⛲ Circuito Mágico del Agua</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-wind"></i> 16°C Viento fresco</span>
+                                    </div>
+                                    <p>Show de luces y fuentes de agua en el Parque de la Reserva. Entrada S/ 4.00 p/p.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca abrigadora (el show es a la intemperie).</div>
                                     <span class="badge badge-blue">Entrada: S/ 8.00 (Ambos)</span>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Restaurante Maketto">
                                 <div class="time">08:45 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🍜 Cena en Maketto (Miraflores)</h4>
-                                    <p>Excelente ramen y comida asiática en uno de los lugares más cool de Miraflores.</p>
+                                    <div class="content-header">
+                                        <h4>🍜 Cena en Maketto (Miraflores)</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-house"></i> Interiores cálidos</span>
+                                    </div>
+                                    <p>Cena asiática fusión: excelente ramen y baos en Miraflores.</p>
                                     <span class="badge badge-emerald">Presupuesto: S/ 160.00</span>
                                 </div>
                             </li>
@@ -232,34 +288,27 @@
                             <span class="day-desc">Almuerzo Marino & Vuelo a Cusco</span>
                         </div>
                         <ul class="timeline">
-                            <li>
-                                <div class="time">09:00 AM</div>
-                                <div class="timeline-content">
-                                    <h4>💼 Trabajo & Maletas</h4>
-                                    <p>José en oficina hasta las 4 PM. Angelica cierra equipaje en el departamento.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Punto Azul Miraflores">
                                 <div class="time">04:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🐟 Almuerzo Marino en Punto Azul</h4>
+                                    <div class="content-header">
+                                        <h4>🐟 Almuerzo Marino en Punto Azul</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Templado</span>
+                                    </div>
                                     <p>Ceviches y tiraditos de despedida en Miraflores antes del viaje.</p>
                                     <span class="badge badge-emerald">Presupuesto: S/ 120.00</span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="time">06:30 PM</div>
-                                <div class="timeline-content">
-                                    <h4>🚕 Traslado al Aeropuerto</h4>
-                                    <p>Uber hacia el aeropuerto Jorge Chávez para el vuelo nocturno.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-13.5160" data-lon="-71.9780" data-name="Aeropuerto Cusco">
                                 <div class="time">09:10 PM</div>
                                 <div class="timeline-content">
-                                    <h4>✈️ Vuelo Lima ➔ Cusco (LA 2200)</h4>
-                                    <p>Aterrizaje en Cusco a las 10:35 PM. Traslado privado al hotel incluido por la agencia Apu Andino.</p>
-                                    <span class="badge badge-purple">Traslado incluido en Cusco</span>
+                                    <div class="content-header">
+                                        <h4>✈️ Vuelo Lima ➔ Cusco (LA 2200)</h4>
+                                        <span class="weather-tag-danger"><i class="fa-solid fa-snowflake"></i> 5°C Frío andino</span>
+                                    </div>
+                                    <p>Vuelo nocturno a Cusco. Traslado privado al hotel incluido por Apu Andino.</p>
+                                    <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> **Llevar casaca térmica a la mano** para ponérsela al bajar del avión.</div>
+                                    <span class="badge badge-purple">Traslado incluido</span>
                                 </div>
                             </li>
                         </ul>
@@ -273,26 +322,26 @@
                             <span class="day-desc">Valle Sagrado VIP (Pisac & Ollanta)</span>
                         </div>
                         <ul class="timeline">
-                            <li>
+                            <li data-lat="-13.4250" data-lon="-71.8500" data-name="Complejo Arqueológico Pisac">
                                 <div class="time">08:00 AM</div>
                                 <div class="timeline-content">
-                                    <h4>🏔️ Tour Valle Sagrado VIP</h4>
-                                    <p>Visita a Pisac y las impresionantes ruinas y fortaleza de Ollantaytambo. Almuerzo buffet en Urubamba incluido.</p>
-                                    <span class="badge badge-purple">Servicio Apu Andino</span>
+                                    <div class="content-header">
+                                        <h4>🏔️ Tour Valle Sagrado VIP</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-sun"></i> 19°C Sol intenso de sierra</span>
+                                    </div>
+                                    <p>Visita guiada a las ruinas y mercado de Pisac, y la fortaleza de Ollantaytambo. Almuerzo incluido en Urubamba.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Vestir en capas, usar bloqueador SPF 50+ y gorro.</div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="time">04:30 PM</div>
-                                <div class="timeline-content">
-                                    <h4>🚊 Tren Vistadome Observatory a Aguas Calientes</h4>
-                                    <p>Viaje escénico en tren panorámico con show de danzas y música a bordo.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Pueblo">
                                 <div class="time">06:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🏨 Check-in en Aguas Calientes & Cena</h4>
-                                    <p>Acomodación en el hotel y cena libre en el pueblo al pie de Machu Picchu.</p>
+                                    <div class="content-header">
+                                        <h4>🏨 Check-in en Aguas Calientes & Cena</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-temperature-arrow-down"></i> 10°C Noche fresca</span>
+                                    </div>
+                                    <p>Viaje en tren Vistadome y acomodación en hotel de Aguas Calientes.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca ligera o polar.</div>
                                     <span class="badge badge-emerald">Cena Bolsillo: S/ 140.00</span>
                                 </div>
                             </li>
@@ -307,41 +356,34 @@
                             <span class="day-desc">El Santuario de Machu Picchu</span>
                         </div>
                         <ul class="timeline">
-                            <li>
-                                <div class="time">07:30 AM</div>
-                                <div class="timeline-content">
-                                    <h4>🚌 Ascenso al Santuario</h4>
-                                    <p>Subida en buses Consettur hacia la entrada arqueológica de Machu Picchu.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-13.1631" data-lon="-72.5450" data-name="Machu Picchu Santuario">
                                 <div class="time">08:30 AM</div>
                                 <div class="timeline-content">
-                                    <h4>🏛️ Visita Guiada de Machu Picchu (Privada)</h4>
-                                    <p>Recorrido con guía privado por el Circuito 3 y la clásica foto postal del Circuito 1.</p>
-                                    <span class="badge badge-purple">Guía privado incluido</span>
+                                    <div class="content-header">
+                                        <h4>🏛️ Visita Guiada de Machu Picchu (Privada)</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud-sun"></i> 22°C Cálido y templado</span>
+                                    </div>
+                                    <p>Recorrido privado por el santuario arqueológico con guía exclusivo de Apu Andino.</p>
+                                    <div class="clothing-tips-warning"><i class="fa-solid fa-bug"></i> **Usar Repelente de Mosquitos** y polo manga larga ligera. Lentes de sol.</div>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Restaurantes">
                                 <div class="time">12:30 PM</div>
                                 <div class="timeline-content">
                                     <h4>🍔 Almuerzo en Aguas Calientes</h4>
-                                    <p>Comida en el pueblo antes de tomar el tren de retorno.</p>
+                                    <p>Almuerzo libre en el pueblo antes de abordar el tren panorámico de retorno.</p>
                                     <span class="badge badge-emerald">Almuerzo Bolsillo: S/ 180.00</span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="time">04:00 PM</div>
-                                <div class="timeline-content">
-                                    <h4>🚊 Retorno en Tren Vistadome & Traslado a Cusco</h4>
-                                    <p>Tren Aguas Calientes ➔ Ollantaytambo y traslado terrestre privado a tu hotel en Cusco.</p>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-13.5160" data-lon="-71.9780" data-name="Ciudad Imperial de Cusco">
                                 <div class="time">08:30 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🍲 Cena ligera en Cusco</h4>
-                                    <p>Cena libre ligera para contrarrestar la altura de Cusco.</p>
+                                    <div class="content-header">
+                                        <h4>🍲 Retorno y Cena Ligera en Cusco</h4>
+                                        <span class="weather-tag-danger"><i class="fa-solid fa-snowflake"></i> 3°C Noche helada</span>
+                                    </div>
+                                    <p>Llegada al hotel en Cusco tras el tren y traslado terrestre. Cena ligera por la altitud.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca térmica de plumas, gorro de lana y guantes.</div>
                                     <span class="badge badge-emerald">Cena Bolsillo: S/ 100.00</span>
                                 </div>
                             </li>
@@ -356,26 +398,25 @@
                             <span class="day-desc">Vuelo de retorno & Cena en 7 Sopas</span>
                         </div>
                         <ul class="timeline">
-                            <li>
-                                <div class="time">08:30 AM</div>
+                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Miraflores, Lima">
+                                <div class="time">12:15 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🚕 Traslado al Aeropuerto de Cusco</h4>
-                                    <p>Recojo por Apu Andino en el hotel y traslado al aeropuerto.</p>
+                                    <div class="content-header">
+                                        <h4>✈️ Retorno a Lima y Descanso</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Nublado</span>
+                                    </div>
+                                    <p>Llegada del vuelo de Cusco y traslado en Uber al departamento de Miraflores para descansar.</p>
                                 </div>
                             </li>
-                            <li>
-                                <div class="time">10:40 AM</div>
-                                <div class="timeline-content">
-                                    <h4>✈️ Vuelo Cusco ➔ Lima (LA 2014)</h4>
-                                    <p>Aterrizaje en Lima a las 12:15 PM. Uber directo al departamento en Miraflores para descansar por la tarde.</p>
-                                    <span class="badge badge-blue">Traslado 3: S/ 85.00</span>
-                                </div>
-                            </li>
-                            <li>
+                            <li data-lat="-12.1220" data-lon="-77.0300" data-name="7 Sopas Parque Kennedy">
                                 <div class="time">08:00 PM</div>
                                 <div class="timeline-content">
-                                    <h4>🍲 Cena de Despedida en 7 Sopas</h4>
-                                    <p>Visita al local de <strong>7 Sopas en Parque Kennedy</strong> (Calle de las Pizzas). Caldos, sopas y pan recién salido del horno.</p>
+                                    <div class="content-header">
+                                        <h4>🍲 Cena de Despedida en 7 Sopas</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-wind"></i> 16°C Noche fresca</span>
+                                    </div>
+                                    <p>Cena en 7 Sopas de Parque Kennedy. Caldos y sopas tradicionales calientes.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca ligera o suéter.</div>
                                     <span class="badge badge-emerald">Presupuesto: S/ 80.00</span>
                                 </div>
                             </li>
@@ -393,27 +434,24 @@
                             <i class="fa-solid fa-clock"></i> <strong>Nota:</strong> José trabaja de 9 AM a 3 PM este día.
                         </div>
                         <ul class="timeline">
-                            <li>
+                            <li data-lat="-12.1225" data-lon="-77.0350" data-name="El Pan de la Chola, Miraflores">
                                 <div class="time">07:30 AM</div>
                                 <div class="timeline-content">
-                                    <h4>🥐 Desayuno en El Pan de la Chola</h4>
-                                    <p>Desayuno juntos temprano antes de que José vaya a la oficina. Excelente pan artesanal y café de especialidad.</p>
+                                    <div class="content-header">
+                                        <h4>🥐 Desayuno en El Pan de la Chola</h4>
+                                        <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 16°C Mañana fresca</span>
+                                    </div>
+                                    <p>Desayuno de despedida antes del trabajo de José y viaje de regreso de Angelica.</p>
+                                    <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Casaca ligera.</div>
                                     <span class="badge badge-emerald">Presupuesto: S/ 70.00</span>
                                 </div>
                             </li>
-                            <li>
+                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
                                 <div class="time">10:00 AM</div>
                                 <div class="timeline-content">
                                     <h4>🚕 Salida de Angelica al Aeropuerto</h4>
-                                    <p>Check-out del departamento. Uber Comfort/Black hacia el aeropuerto Jorge Chávez.</p>
+                                    <p>Check-out y Uber al aeropuerto para abordar su vuelo internacional.</p>
                                     <span class="badge badge-blue">Traslado 4: S/ 85.00</span>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="time">01:00 PM</div>
-                                <div class="timeline-content">
-                                    <h4>✈️ Vuelo de Retorno de Angelica a Cali</h4>
-                                    <p>Vuelo internacional LATAM de regreso a Colombia (con escala en Bogotá). Fin del viaje.</p>
                                 </div>
                             </li>
                         </ul>
@@ -434,7 +472,19 @@
                 </div>
             </div>
 
-            <!-- TAB 3: CLIMA Y ALERTAS -->
+            <!-- TAB 3: LISTA DE EMPAQUE (ANGELICA) -->
+            <div id="tab-packing" class="tab-pane">
+                <div class="section-title">
+                    <h2>🎒 Lista de Equipaje para Angelica</h2>
+                    <p>Cosas indispensables para empacar en Cali y traer a Perú</p>
+                </div>
+
+                <div class="packing-list-container" id="packing-list-render">
+                    <!-- Loaded dynamically via JS -->
+                </div>
+            </div>
+
+            <!-- TAB 4: CLIMA Y ALERTAS -->
             <div id="tab-weather" class="tab-pane">
                 <div class="section-title">
                     <h2>🌦️ Clima & Variables de Viaje</h2>
@@ -509,11 +559,11 @@
                 </div>
             </div>
 
-            <!-- TAB 4: RECURSOS -->
+            <!-- TAB 5: RECURSOS -->
             <div id="tab-resources" class="tab-pane">
                 <div class="section-title">
                     <h2>🗺️ Recursos & Direcciones</h2>
-                    <p>Acceso rápido a mapas y links de interés</p>
+                    <p>Accesso rápido a mapas y links de interés</p>
                 </div>
 
                 <div class="resources-grid">
@@ -561,7 +611,7 @@
 
         </main>
 
-        <!-- Bottom Navigation Bar (Mobile Native Style) -->
+        <!-- Bottom Navigation Bar -->
         <nav class="bottom-nav">
             <button class="nav-item active" data-target="tab-itinerary">
                 <i class="fa-solid fa-calendar-days"></i>
@@ -570,6 +620,10 @@
             <button class="nav-item" data-target="tab-tracker">
                 <i class="fa-solid fa-wallet"></i>
                 <span>Pagos</span>
+            </button>
+            <button class="nav-item" data-target="tab-packing">
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                <span>Maleta</span>
             </button>
             <button class="nav-item" data-target="tab-weather">
                 <i class="fa-solid fa-cloud-sun"></i>
