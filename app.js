@@ -151,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderPackingList();
     updateCalculations();
     setupNavigation();
+    initItineraryViewFilter();
     setupCountdown();
     setupNotes();
     setupResetButton();
@@ -344,11 +345,12 @@ function calculateAndDisplayRoute(origin, isBase = false) {
     const resultsContainer = document.getElementById("loc-results");
     if (!resultsContainer) return;
     
-    // Obtener la siguiente actividad con coordenadas para el Día Activo
+    // Obtener la siguiente actividad con coordenadas para el Día Activo (que esté visible)
     const activeCard = document.getElementById(`day-card-${activeDay}`);
     if (!activeCard) return;
     
-    const nextActivityEl = activeCard.querySelector("li[data-lat]");
+    const activities = Array.from(activeCard.querySelectorAll("li[data-lat]"));
+    const nextActivityEl = activities.find(el => el.style.display !== "none");
     if (!nextActivityEl) {
         resultsContainer.style.display = "none";
         return;
@@ -615,5 +617,67 @@ function updateClockLocation() {
         } else {
             cityEl.innerHTML = "📍 Lima (Predefinido)";
         }
+    }
+}
+
+// ==========================================
+// FILTRADO DE VISTA DE ITINERARIO (JOSÉ & ANGELICA)
+// ==========================================
+function initItineraryViewFilter() {
+    const viewSelector = document.querySelector(".itinerary-view-selector");
+    if (!viewSelector) return;
+
+    const viewBtns = viewSelector.querySelectorAll(".view-btn");
+    
+    // Leer preferencia de localStorage, por defecto "jose"
+    let activeView = localStorage.getItem("jose_dashboard_itinerary_view") || "jose";
+    
+    // Aplicar vista activa
+    applyItineraryView(activeView);
+    
+    viewBtns.forEach(btn => {
+        // Establecer clase activa inicial
+        if (btn.dataset.view === activeView) {
+            btn.classList.add("active");
+        } else {
+            btn.classList.remove("active");
+        }
+        
+        btn.addEventListener("click", () => {
+            const selectedView = btn.dataset.view;
+            activeView = selectedView;
+            localStorage.setItem("jose_dashboard_itinerary_view", selectedView);
+            
+            viewBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            
+            applyItineraryView(selectedView);
+        });
+    });
+}
+
+function applyItineraryView(view) {
+    const timelineItems = document.querySelectorAll(".timeline li[data-owner]");
+    
+    timelineItems.forEach(item => {
+        const owner = item.dataset.owner;
+        if (view === "jose") {
+            // Mostrar solo los de jose y compartidos (shared)
+            if (owner === "angelica") {
+                item.style.display = "none";
+            } else {
+                item.style.display = ""; // Restablecer display por defecto
+            }
+        } else {
+            // Mostrar todo (vista completa de Angelica)
+            item.style.display = ""; // Restablecer display por defecto
+        }
+    });
+    
+    // Recalcular ruta de GPS con los elementos visibles
+    if (userLocation) {
+        calculateAndDisplayRoute(userLocation);
+    } else {
+        calculateRouteFromBase();
     }
 }

@@ -122,6 +122,16 @@
                     <button class="day-btn" data-day="8">M11</button>
                 </div>
 
+                <!-- Selector de Vista del Itinerario -->
+                <div class="itinerary-view-selector">
+                    <button class="view-btn active" data-view="jose">
+                        <i class="fa-solid fa-user"></i> Mis Tiempos y Compartidos
+                    </button>
+                    <button class="view-btn" data-view="angelica">
+                        <i class="fa-solid fa-user-friends"></i> Tiempos de Angélica
+                    </button>
+                </div>
+
                 <!-- Daily Content Cards -->
                 <div class="daily-cards-container">
                     
@@ -238,7 +248,7 @@
                                         <h4>🍽️ Cena de Bienvenida en Mangos o Popular</h4>
                                         <span class="weather-tag"><i class="fa-solid fa-wind"></i> 15°C Brisa fría</span>
                                     </div>
-                                    <p>Cena de bienvenida frente al mar en el restaurante Mangos o Popular en Larcomar.</p>
+                                    <p>Una cena tranquila frente al mar en el restaurante Mangos o Popular en Larcomar para celebrar tu llegada a Perú.</p>
                                     <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Chaqueta cortavientos o chaqueta abrigadora.</div>
                                     <span class="badge badge-emerald">Presupuesto: S/ 160.00</span>
                                 </div>
@@ -257,7 +267,7 @@
                             <i class="fa-solid fa-info-circle"></i> <strong>Nota:</strong> José trabaja de 9 AM a 4 PM y tiene su sesión de Grounding C1 de 8 PM a 9 PM.
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Av. Benavides 1130 (Recogida)">
+                            <li data-owner="angelica" data-lat="-12.1287" data-lon="-77.0223" data-name="Av. Benavides 1130 (Recogida)">
                                 <div class="time">04:30 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -269,7 +279,7 @@
                                     <span class="badge badge-purple">Recogida en la puerta</span>
                                 </div>
                             </li>
-                            <li data-lat="-13.8340" data-lon="-76.2514" data-name="Puerto de Paracas (Botes)">
+                            <li data-owner="angelica" data-lat="-13.8340" data-lon="-76.2514" data-name="Puerto de Paracas (Botes)">
                                 <div class="time">08:00 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -281,7 +291,7 @@
                                     <span class="badge badge-blue">Tasas incluidas</span>
                                 </div>
                             </li>
-                            <li data-lat="-14.0875" data-lon="-75.7630" data-name="Bodega Vitivinícola Ica">
+                            <li data-owner="angelica" data-lat="-14.0875" data-lon="-75.7630" data-name="Bodega Vitivinícola Ica">
                                 <div class="time">01:00 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -293,7 +303,7 @@
                                     <span class="badge badge-emerald">Almuerzo Incluido</span>
                                 </div>
                             </li>
-                            <li data-lat="-14.0875" data-lon="-75.7630" data-name="Huacachina Oasis">
+                            <li data-owner="angelica" data-lat="-14.0875" data-lon="-75.7630" data-name="Huacachina Oasis">
                                 <div class="time">02:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -304,7 +314,7 @@
                                      <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> <strong>Zapatillas cerradas</strong> (no sandalias) y lentes de sol para la arena.</div>
                                 </div>
                             </li>
-                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento en Miraflores">
+                            <li data-owner="shared" data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento en Miraflores">
                                 <div class="time">10:00 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -326,7 +336,7 @@
                             <span class="day-desc">Centro Histórico & Circuito del Agua</span>
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-12.0464" data-lon="-77.0300" data-name="Plaza Mayor Centro de Lima">
+                            <li data-owner="shared" data-lat="-12.0464" data-lon="-77.0300" data-name="Plaza Mayor Centro de Lima">
                                 <div class="time">04:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -337,7 +347,7 @@
                                     <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Chaqueta ligera o buzo abrigado.</div>
                                 </div>
                             </li>
-                            <li data-lat="-12.0725" data-lon="-77.0345" data-name="Parque de la Reserva (Fuentes)">
+                            <li data-owner="shared" data-lat="-12.0725" data-lon="-77.0345" data-name="Parque de la Reserva (Fuentes)">
                                 <div class="time">07:00 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -349,7 +359,7 @@
                                     <span class="badge badge-blue">Entrada: S/ 8.00 (Ambos)</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.1125" data-lon="-77.0345" data-name="Restaurante Maketto">
+                            <li data-owner="shared" data-lat="-12.1125" data-lon="-77.0345" data-name="Restaurante Maketto">
                                 <div class="time">08:45 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -371,7 +381,7 @@
                             <span class="day-desc">Almuerzo Marino & Vuelo a Cusco</span>
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Punto Azul Miraflores">
+                            <li data-owner="shared" data-lat="-12.1287" data-lon="-77.0223" data-name="Punto Azul Miraflores">
                                 <div class="time">04:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -382,7 +392,7 @@
                                     <span class="badge badge-emerald">Presupuesto: S/ 120.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
+                            <li data-owner="shared" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
                                 <div class="time">06:15 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -392,7 +402,7 @@
                                     <span class="badge badge-blue">Traslado 2: S/ 85.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
+                            <li data-owner="shared" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
                                 <div class="time">07:15 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -401,7 +411,7 @@
                                     <p>Ingreso al terminal, entrega de equipaje en counter de LATAM y paso por el control de seguridad nacional.</p>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
+                            <li data-owner="shared" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
                                 <div class="time">09:10 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -412,7 +422,7 @@
                                      <div class="clothing-tips-warning"><i class="fa-solid fa-shield-halved"></i> <strong>Llevar chaqueta térmica a la mano</strong> para ponérsela al bajar del avión.</div>
                                 </div>
                             </li>
-                            <li data-lat="-13.5160" data-lon="-71.9780" data-name="Hotel en Cusco">
+                            <li data-owner="shared" data-lat="-13.5160" data-lon="-71.9780" data-name="Hotel en Cusco">
                                 <div class="time">10:35 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -434,7 +444,7 @@
                             <span class="day-desc">Valle Sagrado VIP (Pisac & Ollanta)</span>
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-13.4250" data-lon="-71.8500" data-name="Complejo Arqueológico Pisac">
+                            <li data-owner="shared" data-lat="-13.4250" data-lon="-71.8500" data-name="Complejo Arqueológico Pisac">
                                 <div class="time">08:00 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -445,7 +455,7 @@
                                     <div class="clothing-tips"><i class="fa-solid fa-shirt"></i> Vestir en capas, usar bloqueador SPF 50+ y gorro.</div>
                                 </div>
                             </li>
-                            <li data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Pueblo">
+                            <li data-owner="shared" data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Pueblo">
                                 <div class="time">06:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -468,7 +478,7 @@
                             <span class="day-desc">El Santuario de Machu Picchu</span>
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-13.1631" data-lon="-72.5450" data-name="Machu Picchu Santuario">
+                            <li data-owner="shared" data-lat="-13.1631" data-lon="-72.5450" data-name="Machu Picchu Santuario">
                                 <div class="time">08:30 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -479,7 +489,7 @@
                                      <div class="clothing-tips-warning"><i class="fa-solid fa-bug"></i> <strong>Usar Repelente de Mosquitos</strong> y camiseta manga larga ligera. Lentes de sol.</div>
                                 </div>
                             </li>
-                            <li data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Restaurantes">
+                            <li data-owner="shared" data-lat="-13.1551" data-lon="-72.5255" data-name="Aguas Calientes Restaurantes">
                                 <div class="time">12:30 PM</div>
                                 <div class="timeline-content">
                                     <h4>🍔 Almuerzo en Aguas Calientes</h4>
@@ -487,7 +497,7 @@
                                     <span class="badge badge-emerald">Almuerzo Bolsillo: S/ 180.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-13.5160" data-lon="-71.9780" data-name="Ciudad Imperial de Cusco">
+                            <li data-owner="shared" data-lat="-13.5160" data-lon="-71.9780" data-name="Ciudad Imperial de Cusco">
                                 <div class="time">08:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -510,7 +520,7 @@
                             <span class="day-desc">Vuelo de retorno & Cena en 7 Sopas</span>
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-13.5160" data-lon="-71.9780" data-name="Hotel en Cusco">
+                            <li data-owner="shared" data-lat="-13.5160" data-lon="-71.9780" data-name="Hotel en Cusco">
                                 <div class="time">08:30 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -521,7 +531,7 @@
                                     <span class="badge badge-emerald">Taxi Cusco: S/ 20.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-13.5350" data-lon="-71.9390" data-name="Aeropuerto de Cusco (CUZ)">
+                            <li data-owner="shared" data-lat="-13.5350" data-lon="-71.9390" data-name="Aeropuerto de Cusco (CUZ)">
                                 <div class="time">08:50 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -531,7 +541,7 @@
                                     <span class="badge badge-emerald">Almuerzo/Snacks: S/ 60.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-13.5350" data-lon="-71.9390" data-name="Aeropuerto de Cusco (CUZ)">
+                            <li data-owner="shared" data-lat="-13.5350" data-lon="-71.9390" data-name="Aeropuerto de Cusco (CUZ)">
                                 <div class="time">10:40 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -540,7 +550,7 @@
                                     <p>Vuelo de regreso. Duración: 1h 35m. Aterrizaje en el Aeropuerto Jorge Chávez a las 12:15 PM.</p>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
+                            <li data-owner="shared" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
                                 <div class="time">12:15 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -551,7 +561,7 @@
                                     <span class="badge badge-emerald">Traslado 3: S/ 85.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento de José">
+                            <li data-owner="shared" data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento de José">
                                 <div class="time">01:15 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -560,7 +570,7 @@
                                     <p>Llegada al apartamento para desempacar y disfrutar de una tarde de descanso y relax en Miraflores.</p>
                                 </div>
                             </li>
-                            <li data-lat="-12.1220" data-lon="-77.0300" data-name="7 Sopas Parque Kennedy">
+                            <li data-owner="shared" data-lat="-12.1220" data-lon="-77.0300" data-name="7 Sopas Parque Kennedy">
                                 <div class="time">08:00 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -586,7 +596,7 @@
                             <i class="fa-solid fa-clock"></i> <strong>Nota:</strong> José trabaja de 9 AM a 3 PM este día.
                         </div>
                         <ul class="timeline">
-                            <li data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento de José, Miraflores">
+                            <li data-owner="shared" data-lat="-12.1287" data-lon="-77.0223" data-name="Apartamento de José, Miraflores">
                                 <div class="time">07:30 AM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -598,7 +608,7 @@
                                     <span class="badge badge-emerald">Presupuesto: S/ 20.00 (Ingredientes)</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
+                            <li data-owner="angelica" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
                                 <div class="time">10:00 AM</div>
                                 <div class="timeline-content">
                                     <h4>🚕 Salida de Angelica al Aeropuerto</h4>
@@ -606,21 +616,21 @@
                                     <span class="badge badge-blue">Traslado 4: S/ 85.00</span>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
+                            <li data-owner="angelica" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Internacional Jorge Chávez">
                                 <div class="time">10:50 AM</div>
                                 <div class="timeline-content">
                                     <h4>🎒 Llegada al Aeropuerto & Check-in</h4>
                                     <p>Presentación en el counter de LATAM, entrega de equipaje de bodega y paso por seguridad y control migratorio de salida de Perú.</p>
                                 </div>
                             </li>
-                            <li data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
+                            <li data-owner="angelica" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
                                 <div class="time">01:00 PM</div>
                                 <div class="timeline-content">
                                     <h4>✈️ Vuelo Lima ➔ Bogotá (Vuelo LA 2386)</h4>
                                     <p>Vuelo internacional de regreso de Angelica. Duración: 3 horas y 15 minutos. Llegada a Bogotá a las 04:15 PM.</p>
                                 </div>
                             </li>
-                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
+                            <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
                                 <div class="time">04:15 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -629,7 +639,7 @@
                                     <p>Aterrizaje del vuelo internacional de Lima. Conexión nacional. Tiempo de escala: 2 horas.</p>
                                 </div>
                             </li>
-                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Ingreso a Colombia BOG">
+                            <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Ingreso a Colombia BOG">
                                 <div class="time">04:30 PM</div>
                                 <div class="timeline-content">
                                     <div class="content-header">
@@ -638,25 +648,26 @@
                                     <p>Trámite obligatorio de ingreso a Colombia y control de aduanas en el Aeropuerto El Dorado antes de abordar tu conexión nacional a Cali. Recuerda llenar el Check-Mig de entrada.</p>
                                 </div>
                             </li>
-                            <li data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
+                            <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
                                 <div class="time">06:15 PM</div>
                                 <div class="timeline-content">
                                     <h4>✈️ Conexión Bogotá ➔ Cali (Vuelo LA 4079)</h4>
                                     <p>Conexión nacional de regreso a Cali. Duración: 1 hora y 5 minutos. Llegada a las 07:20 PM.</p>
                                 </div>
                             </li>
-                            <li data-lat="3.5430" data-lon="-76.3816" data-name="Aeropuerto Alfonso Bonilla Aragón (CLO)">
+                            <li data-owner="angelica" data-lat="3.5430" data-lon="-76.3816" data-name="Aeropuerto Alfonso Bonilla Aragón (CLO)">
                                 <div class="time">07:20 PM</div>
                                 <div class="timeline-content">
                                     <h4>🎒 Arribo a Cali (CLO)</h4>
                                     <p>Aterrizaje del vuelo nacional en el Aeropuerto Alfonso Bonilla Aragón y recogida de equipaje de bodega.</p>
                                 </div>
                             </li>
-                            <li data-lat="3.466876" data-lon="-76.488552" data-name="Llegada a Villa del Prado, Cali">
+                            <li data-owner="angelica" data-lat="3.466876" data-lon="-76.488552" data-name="Llegada a Villa del Prado, Cali">
                                 <div class="time">07:50 PM</div>
                                 <div class="timeline-content">
                                     <h4>🏠 Regreso de Angelica a Villa del Prado (Cali)</h4>
                                     <p>Llegada en Uber o transporte de vuelta a su casa en Villa del Prado (Carrera 4F con Calle 64B) para descansar. ¡Fin del viaje! 🇨🇴</p>
+                                    <p style="margin-top: 15px; font-style: italic; color: var(--primary);">Gracias por compartir esta aventura. Espero que te lleves grandes recuerdos de Perú, sus paisajes, su comida y todos los momentos vividos durante estos días. ❤️</p>
                                 </div>
                             </li>
                         </ul>
@@ -828,7 +839,7 @@
                     
                     <div class="resource-card">
                         <h3>📍 Base en Lima (Apartamento de José)</h3>
-                        <p>Av. Benavides 1130, Apto 503, Miraflores.</p>
+                        <p>Av. Benavides 1130, Miraflores.</p>
                         <a href="https://maps.google.com/?q=Av.+Alfredo+Benavides+1130,+Miraflores,+Lima" target="_blank" class="btn btn-sm btn-outline"><i class="fa-solid fa-location-dot"></i> Ver en Google Maps</a>
                     </div>
 
@@ -848,8 +859,8 @@
                         <h3>✈️ Check-in de Vuelos (LATAM)</h3>
                         <p>Revisar estados de vuelo y hacer check-in 48 horas antes.</p>
                         <div class="pnrs-box">
-                            <div><strong>Cali-Lima:</strong> <code>ITSNNN</code> (Angelica)</div>
-                            <div><strong>Lima-Cusco:</strong> <code>KMTEYF</code> / <code>KDIKGN</code></div>
+                             <div><strong>Cali-Lima:</strong> <code>ITS*** (Ver WhatsApp)</code> (Angelica)</div>
+                             <div><strong>Lima-Cusco:</strong> <code>KMT*** / KDI*** (Ver WhatsApp)</code></div>
                         </div>
                         <a href="https://www.latamairlines.com/" target="_blank" class="btn btn-sm btn-primary"><i class="fa-solid fa-plane"></i> Web de LATAM</a>
                     </div>
@@ -917,8 +928,8 @@
             
             <h4>2. Dirección de Hospedaje (¡Tener a la mano!)</h4>
             <ul>
-                <li><strong>Dirección:</strong> Av. Alfredo Benavides 1130, Apartamento 503, Miraflores, Lima.</li>
-                <li><strong>Hospedado por:</strong> José (apartamento de un amigo).</li>
+                <li><strong>Dirección:</strong> Av. Alfredo Benavides 1130, Miraflores, Lima.</li>
+                <li><strong>Hospedaje:</strong> Apartamento privado ubicado en Miraflores.</li>
             </ul>
             
             <h4>3. Declaración y Preguntas Frecuentes</h4>

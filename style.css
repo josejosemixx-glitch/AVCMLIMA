@@ -532,6 +532,53 @@ body {
     transform: scale(1.05);
 }
 
+/* Itinerary View Selector */
+.itinerary-view-selector {
+    display: flex;
+    background: rgba(22, 30, 46, 0.4);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius-md);
+    padding: 4px;
+    margin-bottom: 20px;
+    gap: 4px;
+    box-shadow: var(--shadow-sm);
+}
+
+.itinerary-view-selector .view-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.82rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.itinerary-view-selector .view-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.itinerary-view-selector .view-btn.active {
+    background: var(--bg-surface);
+    color: var(--primary);
+    border-color: var(--border-glass);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Timeline filtering transition */
+.timeline li {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
 .daily-cards-container {
     position: relative;
 }
