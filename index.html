@@ -159,6 +159,9 @@
                                         <h4>🎒 Llegada al Aeropuerto CLO & Check-in</h4>
                                     </div>
                                     <p>Entrega de equipaje en el counter de LATAM y paso por el control de seguridad. Tiempo para un café rápido antes de abordar.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
+                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de CLO
+                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="3.5430" data-lon="-76.3816" data-name="Aeropuerto Alfonso Bonilla Aragón (CLO)">
@@ -168,6 +171,9 @@
                                         <h4>✈️ Vuelo Cali ➔ Bogotá (Vuelo LA 4066)</h4>
                                     </div>
                                     <p>Salida del primer vuelo hacia Bogotá. Duración: 1 hora y 10 minutos. Llegada a El Dorado a las 10:00 AM.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
+                                        <i class="fa-solid fa-wifi"></i> Wi-Fi gratis en el Avión (WhatsApp)
+                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
@@ -177,6 +183,9 @@
                                         <h4>✈️ Llegada a Bogotá (El Dorado)</h4>
                                     </div>
                                     <p>Aterrizaje en Bogotá (escala). Conexión internacional. Tiempo de escala: 1h 55m.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
+                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de BOG
+                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Migración de Salida BOG">
@@ -195,6 +204,9 @@
                                         <h4>✈️ Conexión Bogotá ➔ Lima (Vuelo LA 4906)</h4>
                                     </div>
                                     <p>Conexión internacional en Bogotá. Salida hacia Lima. Duración: 3 horas y 5 minutos.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
+                                        <i class="fa-solid fa-wifi"></i> Wi-Fi gratis en el Avión (WhatsApp)
+                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="-12.0240" data-lon="-77.1120" data-name="Aeropuerto Jorge Chávez (LIM)">
@@ -205,6 +217,9 @@
                                         <span class="weather-tag"><i class="fa-solid fa-cloud"></i> 18°C Húmedo</span>
                                     </div>
                                     <p>Aterrizaje del vuelo de Angelica proveniente de Bogotá en el Aeropuerto Jorge Chávez.</p>
+                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
+                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de LIM
+                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="-12.0240" data-lon="-77.1120" data-name="Paso por Migraciones">
@@ -866,6 +881,18 @@
                     </div>
 
                     <div class="resource-card">
+                        <h3>📡 Guía de Conectividad (Wi-Fi)</h3>
+                        <p>Instrucciones detalladas para conectarte al Wi-Fi del avión (LATAM Play) y de todos los aeropuertos de tu ruta.</p>
+                        <button onclick="document.getElementById('wifi-dialog').showModal()" class="btn btn-sm btn-outline"><i class="fa-solid fa-wifi"></i> Abrir Guía de Wi-Fi</button>
+                    </div>
+
+                    <div class="resource-card">
+                        <h3>📋 Control Migratorio (Perú)</h3>
+                        <p>Preguntas frecuentes, requisitos y dirección de hospedaje en Miraflores para presentar en migraciones al llegar a Lima.</p>
+                        <button onclick="document.getElementById('migration-dialog').showModal()" class="btn btn-sm btn-outline"><i class="fa-solid fa-passport"></i> Abrir Guía de Migraciones</button>
+                    </div>
+
+                    <div class="resource-card">
                         <h3>📞 Contacto Apu Andino</h3>
                         <p>Agencia contratada en Cusco. Coordinar saldo restante (S/ 2,335).</p>
                         <a href="https://wa.me/51984714300" target="_blank" class="btn btn-sm btn-emerald"><i class="fa-brands fa-whatsapp"></i> Escribir a Mary Cruz</a>
@@ -938,6 +965,49 @@
                 <li><strong>¿Cuánto tiempo te quedarás?</strong> 8 días (del 4 al 11 de Agosto).</li>
                 <li><strong>¿Tienes pasaje de regreso?</strong> Sí, salgo de Lima el 11 de Agosto (LATAM).</li>
                 <li><strong>¿Qué lugares visitarás?</strong> Lima, Paracas/Ica y Cusco.</li>
+            </ul>
+        </div>
+    </dialog>
+
+    <!-- Dialog para WiFi y Conectividad -->
+    <dialog id="wifi-dialog">
+        <div class="dialog-header">
+            <h3>📡 Guía de Conectividad Wi-Fi (Vuelos y Aeropuertos)</h3>
+            <button class="dialog-close" onclick="document.getElementById('wifi-dialog').close()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="dialog-body">
+            <p>Sigue estos pasos detallados para mantenerte conectada y chatear con José en todo momento:</p>
+            
+            <h4>✈️ 1. Durante los Vuelos (LATAM Play - ¡Gratis para WhatsApp!)</h4>
+            <ul>
+                <li><strong>Modo Avión:</strong> Activa el <em>Modo Avión</em> en tu celular antes del despegue.</li>
+                <li><strong>Activar Wi-Fi:</strong> Enciende el Wi-Fi de tu celular (sin quitar el Modo Avión) y conéctate a la red <strong><code>LATAM Play</code></strong>.</li>
+                <li><strong>Acceder al Portal:</strong> Abre tu navegador web favorito (Chrome, Safari). Debería abrirse automáticamente. Si no lo hace, escribe en la barra de direcciones: <strong><code>latamplay.com</code></strong></li>
+                <li><strong>Activar Mensajería Gratis:</strong> Busca la sección de <em>"Mensajería gratis"</em> o <em>"Chatea gratis"</em> en la página y actívala. Esto te permitirá enviar y recibir mensajes de texto por <strong>WhatsApp, iMessage y Messenger</strong> de forma ilimitada durante todo el vuelo sin costo.</li>
+            </ul>
+            
+            <h4>🇨🇴 2. Aeropuerto de Cali (CLO - Alfonso Bonilla Aragón)</h4>
+            <ul>
+                <li><strong>Red Wi-Fi:</strong> Busca y conéctate a la red <strong><code>WIFI GRATIS AEROCALI</code></strong> o <strong><code>Aerocali</code></strong>.</li>
+                <li><strong>Registro:</strong> Abre tu navegador, espera a que cargue el portal, acepta los términos y condiciones de Aerocali, y presiona "Conectar". Tendrás internet gratis de forma temporal (puedes reconectarte si se vence).</li>
+            </ul>
+            
+            <h4>🇨🇴 3. Aeropuerto de Bogotá (BOG - El Dorado)</h4>
+            <ul>
+                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>.EL DORADO FREE WIFI</code></strong> o <strong><code>Bogota El Dorado Free Wi-Fi</code></strong>.</li>
+                <li><strong>Registro:</strong> Abre el navegador, espera a que cargue el portal, haz clic en <strong>"Acceso Gratuito"</strong> (o "Free Access"), acepta los términos y listo. La conexión en El Dorado es de alta velocidad e ilimitada.</li>
+            </ul>
+            
+            <h4>🇵🇪 4. Aeropuerto de Lima (LIM - Jorge Chávez)</h4>
+            <ul>
+                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>WIFI_AEROPUERTO_LIMA</code></strong> o <strong><code>.WIFI_AEROPUERTO</code></strong>.</li>
+                <li><strong>Registro:</strong> Al conectarte, se abrirá la página de registro de LAP (Lima Airport Partners). Selecciona la opción de internet gratuito, acepta los términos y haz clic en continuar. Ofrece acceso gratuito e ilimitado.</li>
+            </ul>
+            
+            <h4>🇵🇪 5. Aeropuerto de Cusco (CUZ - Velasco Astete)</h4>
+            <ul>
+                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>Cusco Airport Free WiFi</code></strong> si se encuentra activa.</li>
+                <li><strong>Nota:</strong> En Cusco la señal gratuita suele ser más débil o intermitente en las salas de embarque. Si necesitas conectarte con urgencia, intenta acercarte al hall principal o cerca de los counters.</li>
             </ul>
         </div>
     </dialog>
