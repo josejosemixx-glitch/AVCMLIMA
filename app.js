@@ -163,21 +163,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // CARGAR Y GUARDAR ESTADO
 // ==========================================
 function loadState() {
-    const savedState = localStorage.getItem("viaje_lima_cusco_state");
-    if (savedState) {
-        try {
+    try {
+        const savedState = localStorage.getItem("viaje_lima_cusco_state");
+        if (savedState) {
             state = JSON.parse(savedState);
             if (!state.checkedItems) state.checkedItems = {};
             if (!state.packingItems) state.packingItems = {};
             if (!state.notes) state.notes = "";
-        } catch (e) {
-            console.error("Error cargando estado:", e);
         }
+    } catch (e) {
+        console.error("Error cargando estado de localStorage:", e);
     }
 }
 
 function saveState() {
-    localStorage.setItem("viaje_lima_cusco_state", JSON.stringify(state));
+    try {
+        localStorage.setItem("viaje_lima_cusco_state", JSON.stringify(state));
+    } catch (e) {
+        console.error("Error guardando estado en localStorage:", e);
+    }
 }
 
 // ==========================================
@@ -630,7 +634,12 @@ function initItineraryViewFilter() {
     const viewBtns = viewSelector.querySelectorAll(".view-btn");
     
     // Leer preferencia de localStorage, por defecto "jose"
-    let activeView = localStorage.getItem("jose_dashboard_itinerary_view") || "jose";
+    let activeView = "jose";
+    try {
+        activeView = localStorage.getItem("jose_dashboard_itinerary_view") || "jose";
+    } catch (e) {
+        console.warn("localStorage no está disponible para leer vista:", e);
+    }
     
     // Aplicar vista activa
     applyItineraryView(activeView);
@@ -646,7 +655,11 @@ function initItineraryViewFilter() {
         btn.addEventListener("click", () => {
             const selectedView = btn.dataset.view;
             activeView = selectedView;
-            localStorage.setItem("jose_dashboard_itinerary_view", selectedView);
+            try {
+                localStorage.setItem("jose_dashboard_itinerary_view", selectedView);
+            } catch (e) {
+                console.warn("No se pudo guardar la preferencia en localStorage:", e);
+            }
             
             viewBtns.forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
