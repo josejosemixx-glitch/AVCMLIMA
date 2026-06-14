@@ -159,9 +159,6 @@
                                         <h4>🎒 Llegada al Aeropuerto CLO & Check-in</h4>
                                     </div>
                                     <p>Entrega de equipaje en el counter de LATAM y paso por el control de seguridad. Tiempo para un café rápido antes de abordar.</p>
-                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
-                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de CLO
-                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="3.5430" data-lon="-76.3816" data-name="Aeropuerto Alfonso Bonilla Aragón (CLO)">
@@ -171,9 +168,6 @@
                                         <h4>✈️ Vuelo Cali ➔ Bogotá (Vuelo LA 4066)</h4>
                                     </div>
                                     <p>Salida del primer vuelo hacia Bogotá. Duración: 1 hora y 10 minutos. Llegada a El Dorado a las 10:00 AM.</p>
-                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
-                                        <i class="fa-solid fa-wifi"></i> Wi-Fi gratis en el Avión (WhatsApp)
-                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Aeropuerto El Dorado (BOG)">
@@ -183,9 +177,6 @@
                                         <h4>✈️ Llegada a Bogotá (El Dorado)</h4>
                                     </div>
                                     <p>Aterrizaje en Bogotá (escala). Conexión internacional. Tiempo de escala: 1h 55m.</p>
-                                    <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
-                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de BOG
-                                    </button>
                                 </div>
                             </li>
                             <li data-owner="angelica" data-lat="4.7016" data-lon="-74.1469" data-name="Migración de Salida BOG">
@@ -218,7 +209,7 @@
                                     </div>
                                     <p>Aterrizaje del vuelo de Angelica proveniente de Bogotá en el Aeropuerto Jorge Chávez.</p>
                                     <button class="btn btn-sm btn-outline" style="margin-top: 8px; border-color: var(--primary); color: var(--primary);" onclick="document.getElementById('wifi-dialog').showModal()">
-                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de LIM
+                                        <i class="fa-solid fa-wifi"></i> Conectarse al Wi-Fi de LIM (Aeropuerto Lima)
                                     </button>
                                 </div>
                             </li>
@@ -881,8 +872,8 @@
                     </div>
 
                     <div class="resource-card">
-                        <h3>📡 Guía de Conectividad (Wi-Fi)</h3>
-                        <p>Instrucciones detalladas para conectarte al Wi-Fi del avión (LATAM Play) y de todos los aeropuertos de tu ruta.</p>
+                        <h3>📡 Conectividad Internacional</h3>
+                        <p>Instrucciones detalladas para conectarte al Wi-Fi del avión (LATAM Play) y de los aeropuertos en Perú (fuera de Colombia).</p>
                         <button onclick="document.getElementById('wifi-dialog').showModal()" class="btn btn-sm btn-outline"><i class="fa-solid fa-wifi"></i> Abrir Guía de Wi-Fi</button>
                     </div>
 
@@ -972,42 +963,31 @@
     <!-- Dialog para WiFi y Conectividad -->
     <dialog id="wifi-dialog">
         <div class="dialog-header">
-            <h3>📡 Guía de Conectividad Wi-Fi (Vuelos y Aeropuertos)</h3>
+            <h3>📡 Conectividad Internacional (Fuera de Colombia)</h3>
             <button class="dialog-close" onclick="document.getElementById('wifi-dialog').close()"><i class="fa-solid fa-xmark"></i></button>
         </div>
         <div class="dialog-body">
-            <p>Sigue estos pasos detallados para mantenerte conectada y chatear con José en todo momento:</p>
+            <p><strong>Nota:</strong> Dentro de Colombia puedes usar tus datos móviles normales. Sigue esta guía detallada para mantenerte conectada cuando salgas del país (en vuelos internacionales y aeropuertos de Perú):</p>
             
-            <h4>✈️ 1. Durante los Vuelos (LATAM Play - ¡Gratis para WhatsApp!)</h4>
+            <h4>✈️ 1. En el Vuelo Bogotá ➔ Lima (LATAM Play - ¡Gratis para WhatsApp!)</h4>
             <ul>
-                <li><strong>Modo Avión:</strong> Activa el <em>Modo Avión</em> en tu celular antes del despegue.</li>
-                <li><strong>Activar Wi-Fi:</strong> Enciende el Wi-Fi de tu celular (sin quitar el Modo Avión) y conéctate a la red <strong><code>LATAM Play</code></strong>.</li>
-                <li><strong>Acceder al Portal:</strong> Abre tu navegador web favorito (Chrome, Safari). Debería abrirse automáticamente. Si no lo hace, escribe en la barra de direcciones: <strong><code>latamplay.com</code></strong></li>
-                <li><strong>Activar Mensajería Gratis:</strong> Busca la sección de <em>"Mensajería gratis"</em> o <em>"Chatea gratis"</em> en la página y actívala. Esto te permitirá enviar y recibir mensajes de texto por <strong>WhatsApp, iMessage y Messenger</strong> de forma ilimitada durante todo el vuelo sin costo.</li>
+                <li><strong>Modo Avión:</strong> Activa el <em>Modo Avión</em> en tu celular antes del despegue en Bogotá.</li>
+                <li><strong>Activar Wi-Fi:</strong> Enciende el Wi-Fi de tu celular (con el Modo Avión aún activado) y conéctate a la red <strong><code>LATAM Play</code></strong>.</li>
+                <li><strong>Acceder al Portal:</strong> Abre tu navegador web (Chrome o Safari). Debería abrirse el portal automáticamente. Si no lo hace, ingresa a: <strong><code>latamplay.com</code></strong></li>
+                <li><strong>Activar Mensajería Gratis:</strong> Busca la opción de <em>"Mensajería gratis"</em> o <em>"Chatea gratis"</em> en la página y actívala. Esto te permitirá enviar y recibir mensajes de texto por <strong>WhatsApp, iMessage y Messenger</strong> durante todo el trayecto internacional de forma gratuita para coordinar con José.</li>
             </ul>
             
-            <h4>🇨🇴 2. Aeropuerto de Cali (CLO - Alfonso Bonilla Aragón)</h4>
+            <h4>🇵🇪 2. Llegada al Aeropuerto de Lima (LIM - Jorge Chávez)</h4>
             <ul>
-                <li><strong>Red Wi-Fi:</strong> Busca y conéctate a la red <strong><code>WIFI GRATIS AEROCALI</code></strong> o <strong><code>Aerocali</code></strong>.</li>
-                <li><strong>Registro:</strong> Abre tu navegador, espera a que cargue el portal, acepta los términos y condiciones de Aerocali, y presiona "Conectar". Tendrás internet gratis de forma temporal (puedes reconectarte si se vence).</li>
+                <li><strong>Importante al Aterrizar:</strong> Conéctate de inmediato para avisarle a José y que él pueda pedir tu Uber a Miraflores.</li>
+                <li><strong>Red Wi-Fi:</strong> Activa el Wi-Fi y conéctate a la red oficial del aeropuerto: <strong><code>WIFI_AEROPUERTO_LIMA</code></strong> o <strong><code>.WIFI_AEROPUERTO</code></strong>.</li>
+                <li><strong>Registro:</strong> Al conectarte se abrirá un portal en pantalla. Acepta los términos de uso e ingresa. Ofrece conexión gratuita de alta velocidad y de manera ilimitada.</li>
             </ul>
             
-            <h4>🇨🇴 3. Aeropuerto de Bogotá (BOG - El Dorado)</h4>
+            <h4>🇵🇪 3. Aeropuerto de Cusco (CUZ - Velasco Astete)</h4>
             <ul>
-                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>.EL DORADO FREE WIFI</code></strong> o <strong><code>Bogota El Dorado Free Wi-Fi</code></strong>.</li>
-                <li><strong>Registro:</strong> Abre el navegador, espera a que cargue el portal, haz clic en <strong>"Acceso Gratuito"</strong> (o "Free Access"), acepta los términos y listo. La conexión en El Dorado es de alta velocidad e ilimitada.</li>
-            </ul>
-            
-            <h4>🇵🇪 4. Aeropuerto de Lima (LIM - Jorge Chávez)</h4>
-            <ul>
-                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>WIFI_AEROPUERTO_LIMA</code></strong> o <strong><code>.WIFI_AEROPUERTO</code></strong>.</li>
-                <li><strong>Registro:</strong> Al conectarte, se abrirá la página de registro de LAP (Lima Airport Partners). Selecciona la opción de internet gratuito, acepta los términos y haz clic en continuar. Ofrece acceso gratuito e ilimitado.</li>
-            </ul>
-            
-            <h4>🇵🇪 5. Aeropuerto de Cusco (CUZ - Velasco Astete)</h4>
-            <ul>
-                <li><strong>Red Wi-Fi:</strong> Conéctate a la red <strong><code>Cusco Airport Free WiFi</code></strong> si se encuentra activa.</li>
-                <li><strong>Nota:</strong> En Cusco la señal gratuita suele ser más débil o intermitente en las salas de embarque. Si necesitas conectarte con urgencia, intenta acercarte al hall principal o cerca de los counters.</li>
+                <li><strong>Red Wi-Fi:</strong> Busca y conéctate a la red <strong><code>Cusco Airport Free WiFi</code></strong> si se encuentra activa.</li>
+                <li><strong>Recomendación:</strong> La señal gratuita en las salas de embarque de Cusco suele ser inestable. Si necesitas reportarte con urgencia, acércate a la zona principal del hall o los counters de aerolíneas donde la señal es mejor.</li>
             </ul>
         </div>
     </dialog>
